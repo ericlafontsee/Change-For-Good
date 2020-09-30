@@ -1,10 +1,11 @@
 const uuid = require("uuid");
 
 module.exports = function(sequelize, DataTypes) {
-    var Events = sequelize.define("Events", {
+    var Event = sequelize.define("Event", {
         id: {
             type: DataTypes.UUID,
-            defaultValue: Sequelize.UUIDV4
+            defaultValue: sequelize.UUIDV4,
+            primaryKey: true
         },
         title: {
             type: DataTypes.STRING,
@@ -14,13 +15,13 @@ module.exports = function(sequelize, DataTypes) {
         eventDate: DataTypes.DATE,
     });
 
-    Events.associate = function(models) {
+    Event.associate = function(models) {
         // Associating individuals (User) with Events
-        Events.hasMany(models.User, {
-            through: models.UserEvents
+        Event.belongsToMany(models.User, {
+            through: models.UserEvent
         });
         //Associating the Organization that created the Event
-        Events.belongsTo(models.Organization, {
+        Event.belongsTo(models.Organization, {
             foreignKey: {
                 allowNull: false
             },
@@ -29,5 +30,5 @@ module.exports = function(sequelize, DataTypes) {
         });
     };
 
-    return Events;
+    return Event;
 };
