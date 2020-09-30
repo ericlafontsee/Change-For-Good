@@ -1,18 +1,31 @@
+const uuid = require("uuid");
+
 module.exports = function(sequelize, DataTypes) {
     var Events = sequelize.define("Events", {
-        orgName: DataTypes.STRING,
-        name: DataTypes.STRING,
-        description: DataTypes.STRING,
-        event_date: DataTypes.DATE,
-        website: DataTypes.STRING
-
+        id: {
+            type: DataTypes.UUID,
+            defaultValue: Sequelize.UUIDV4
+        },
+        title: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        }, 
+        description: DataTypes.TEXT,
+        eventDate: DataTypes.DATE,
     });
 
     Events.associate = function(models) {
-        // Associating Author with Posts
-        // When an Author is deleted, also delete any associated Posts
+        // Associating individuals (User) with Events
         Events.hasMany(models.User, {
-            onDelete: "cascade" //when the event is deleted so will the user
+            through: models.UserEvents
+        });
+        //Associating the Organization that created the Event
+        Events.belongsTo(models.Organization, {
+            foreignKey: {
+                allowNull: false
+            },
+            // When an Organization is deleted, also delete any associated Events
+            onDelete: "cascade"
         });
     };
 
