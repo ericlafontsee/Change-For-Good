@@ -1,11 +1,12 @@
-// Requiring bcrypt for password hashing. Using the bcryptjs version as the regular bcrypt module sometimes causes errors on Windows machines
+const uuid = require("uuid");
 const bcrypt = require("bcryptjs");
 // Creating our Organization model
 module.exports = function(sequelize, DataTypes) {
     const Organization = sequelize.define("Organization", {
         id: {
             type: DataTypes.UUID,
-            defaultValue: Sequelize.UUIDV4
+            defaultValue: sequelize.UUIDV4,
+            primaryKey: true
         },
         name: {
             type: DataTypes.STRING,
@@ -31,8 +32,8 @@ module.exports = function(sequelize, DataTypes) {
 
     Organization.associate = function(models) {
         // Associating Organization with Events
-        Organization.hasMany(models.Events, {
-            onDelete: "cascade" //when the Organization is deleted so will the Events
+        Organization.hasMany(models.Event, {
+            onDelete: "cascade" 
         });
     };
     // Creating a custom method for our Organization model. This will check if an unhashed password entered by the Organization can be compared to the hashed password stored in our database

@@ -1,7 +1,11 @@
-module.exports = function(sequelize) {
-    var UserEvents = sequelize.define("UserEvents", {}, { timestamps: false });
-    User.belongsToMany(Events, { through: UserEvents });
-    Events.belongsToMany(User, { through: UserEvents });
 
-    return UserEvents;
+
+module.exports = function(sequelize) {
+
+    var UserEvent = sequelize.define("UserEvent", {}, { timestamps: false });
+    UserEvent.associate = function(models){
+        UserEvent.hasMany(models.Event);
+        UserEvent.hasMany(models.User);
+    }
+    return UserEvent;
 };
