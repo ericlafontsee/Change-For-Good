@@ -2,9 +2,8 @@
 $(document).ready(() => {
   /* global moment */
 
-  // blogContainer holds all of our Events
-  const blogContainer = $(".blog-container");
-  const eventCategorySelect = $("#category"); //don't think we need this
+  // eventFeed holds all of our Events
+  const eventFeed = $(".eventFeed");
   // Click events for the edit and delete buttons
   $(document).on("click", "button.edit", handleEventEdit); //would need to make this save
   // Variable to hold our Events
@@ -40,14 +39,14 @@ $(document).ready(() => {
       }
     });
   }
-  // InitializeRows handles appending all of our constructed Event HTML inside blogContainer
+  // InitializeRows handles appending all of our constructed Event HTML inside eventFeed
   function initializeRows() {
-    blogContainer.empty();
+    eventFeed.empty();
     const eventsToAdd = [];
     for (let i = 0; i < events.length; i++) {
       eventsToAdd.push(createNewRow(events[i]));
     }
-    blogContainer.append(eventsToAdd);
+    eventFeed.append(eventsToAdd);
   }
 
   // This function constructs a event's HTML
@@ -106,7 +105,7 @@ $(document).ready(() => {
     if (id) {
       partial = " for Organization #" + id;
     }
-    blogContainer.empty();
+    eventFeed.empty();
     const messageH2 = $("<h2>");
     messageH2.css({ "text-align": "center", "margin-top": "50px" });
     messageH2.html(
@@ -116,6 +115,6 @@ $(document).ready(() => {
         query +
         "'>here</a> in order to get started."
     );
-    blogContainer.append(messageH2);
+    eventFeed.append(messageH2);
   }
 });

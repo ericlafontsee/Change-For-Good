@@ -3,6 +3,9 @@ $(document).ready(() => {
   const signUpForm = $("form.signup");
   const emailInput = $("input#email");
   const passwordInput = $("input#password");
+  const passwordConfirm = $("input#passwordConfirm");
+  const telephone = $("input#orgPhone");
+  const website = $("input#orgSite");
 
   // When the signup button is clicked, we validate the email and password are not blank
   signUpForm.on("submit", event => {
