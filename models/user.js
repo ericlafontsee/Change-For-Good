@@ -1,5 +1,5 @@
-const uuid = require("uuid");
 const bcrypt = require("bcryptjs");
+
 // Creating our User model
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define("User", {
