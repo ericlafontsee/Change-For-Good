@@ -1,5 +1,5 @@
-const uuid = require("uuid");
 const bcrypt = require("bcryptjs");
+
 // Creating our Organization model
 module.exports = (sequelize, DataTypes) => {
     const Organization = sequelize.define("Organization", {
