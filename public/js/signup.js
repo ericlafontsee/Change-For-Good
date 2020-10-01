@@ -43,3 +43,12 @@ $(document).ready(() => {
     $("#alert").fadeIn(500);
   }
 });
+
+function passwordCheck(password, confirm) {
+  if (password !== confirm) {
+    alert("Your password does not match, please enter again");
+    passwordInput.empty();
+    passwordConfirm.empty();
+    return;
+  }
+}
