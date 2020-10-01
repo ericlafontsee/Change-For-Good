@@ -1,7 +1,7 @@
 const uuid = require("uuid");
 const bcrypt = require("bcryptjs");
 // Creating our Organization model
-module.exports = function(sequelize, DataTypes) {
+module.exports = (sequelize, DataTypes) => {
     const Organization = sequelize.define("Organization", {
         id: {
             type: DataTypes.UUID,
@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
         },
         name: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: false
         },
         email: {
             type: DataTypes.STRING,
@@ -30,14 +30,14 @@ module.exports = function(sequelize, DataTypes) {
         }
     });
 
-    Organization.associate = function(models) {
+    Organization.associate = models => {
         // Associating Organization with Events
         Organization.hasMany(models.Event, {
             onDelete: "cascade" 
         });
     };
     // Creating a custom method for our Organization model. This will check if an unhashed password entered by the Organization can be compared to the hashed password stored in our database
-    Organization.prototype.validPassword = function(password) {
+    Organization.prototype.validPassword = password => {
         return bcrypt.compareSync(password, this.password);
     };
     // Hooks are automatic methods that run during various phases of the Organization Model lifecycle
