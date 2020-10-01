@@ -31,14 +31,4 @@ module.exports = function(app) {
     });
   });
 
-  //Deletes an organization at this ID
-  app.delete("/api/organization/:id", (req, res) => {
-    db.Organization.destroy({
-      where: {
-        id: req.params.id
-      }
-    }).then(dbOrg => {
-      res.json(dbOrg);
-    });
-  });
-};
+ 
