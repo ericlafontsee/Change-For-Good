@@ -13,36 +13,33 @@ form.login {
   z-index: -1;
 }
 
-
+/* BLOG BOX  */
 h1 {
   text-align: center;
   color: white;
   line-height: 100px;
   margin: 0;
 }
-
 article {
   padding: 10px;
   margin: 10px;
   background:whitesmoke;
 }
 
-/* Add your flexbox CSS below here */
 
+/* BLOGGER BOX ADJUSTMENTS */
 section {
   display: flex;
+  font-family: sans-serif;
 }
-
 article {
   flex: 1 200px;
 }
-
 article:nth-of-type(3) {
   flex: 3 200px;
   display: flex;
   flex-flow: column;
 }
-
 article:nth-of-type(3) div:first-child {
   flex: 1 100px;
   display: flex;
@@ -59,9 +56,7 @@ button {
   font-size: 16px;
   font-weight: 500;
   border: none;;
-
 }
-
 
 .blogButtons {
   background-color: transparent;
@@ -81,9 +76,6 @@ button {
   padding-top: 75px;
   width: 100px;
   position: relative;
-  animation-name: DV;
-  animation-duration: 7s;
-  animation-delay: 1s;
   animation-fill-mode: both;
   vertical-align: middle;
 }
@@ -181,3 +173,10 @@ button {
   display: block;
 }
  
+
+/* BRAND COLORS 
+  #1565C0 Blue Lighter - Trigger
+  #0D47A1 Blue Darker - Hover
+  #641E16 Red - Brand Color
+
+*/
