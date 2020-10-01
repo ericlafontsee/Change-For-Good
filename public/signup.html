@@ -15,7 +15,9 @@
         <form class="signup">
             <div class="emailInput">
                 <label for="email">Email Address: </label><br />
-                <input type="email" id="email" name="email" />
+                <input type="email" id="email" name="email" /><br />
+                <label for="name">Name:</label><br />
+                <input type="text" id="name" name="name" /><br />
             </div>
             <p>Is this account for an organization or an individual?</p>
             <div>
@@ -27,10 +29,8 @@
             <br />
             <!--toggle to display block if organization radio checked-->
             <div class="ifOrg" style="display: block;">
-                <label for="orgName">Organization name:</label><br />
-                <input type="text" id="orgName" name="orgName" /><br />
-                <label for="orgPhone">Phone Number:</label><br />
-                <input type="tel" id="orgPhone" name="orgPhone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required /><br />
+                <!-- <label for="orgPhone">Phone Number:</label><br />
+                <input type="tel" id="orgPhone" name="orgPhone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required /><br /> -->
                 <label for="orgSite">Website:</label><br />
                 <input type="text" id="orgSite" name="orgSite" /><br />
             </div>
