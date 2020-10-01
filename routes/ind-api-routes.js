@@ -1,7 +1,7 @@
 // Requiring our models and passport as we've configured it
 const db = require("../models");
 const passport = require("../config/passport");
-
+const { v4: uuidv4 } = require("uuid");
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
@@ -19,6 +19,8 @@ module.exports = function(app) {
   // otherwise send back an error
   app.post("/api/signup", (req, res) => {
     db.User.create({
+      id: uuidv4(),
+      name: req.body.name,
       email: req.body.email,
       password: req.body.password
     })
@@ -49,5 +51,28 @@ module.exports = function(app) {
         id: req.user.id
       });
     }
+  });
+
+  //this is user's landing page after login displaying all events saved
+  app.get("/api/user/:id", (req, res) => {
+    // A join to include all of the Organization's Events here
+    db.User.findOne({
+      where: {
+        id: req.params.id
+      },
+      include: db.Event //automatically gets all Events assoiated with that Organization
+    }).then(dbUser => {
+      res.json(dbUser);
+    });
+  });
+
+  //this is all events by all orgs when user selects browse all
+  app.get("/api/events", (req, res) => {
+    // A join to include all of each Organization's Events
+    db.Event.findAll({
+      include: db.Organization
+    }).then(dbEvent => {
+      res.json(dbEvent);
+    });
   });
 };

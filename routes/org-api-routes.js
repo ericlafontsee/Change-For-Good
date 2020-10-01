@@ -54,6 +54,7 @@ module.exports = function(app) {
     });
   });
 
+
   // //Creates a new organization
   // app.post("/api/organization", (req, res) => {
   //   db.Organization.create(req.body).then((dbOrg) => {
@@ -62,3 +63,4 @@ module.exports = function(app) {
   // });
 
 };
+

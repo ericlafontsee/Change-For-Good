@@ -3,18 +3,12 @@ const db = require("../models");
 module.exports = function(app) {
   // GET route for getting all of the events
   app.get("/api/event", (req, res) => {
-    var query = {};
-    if (req.query.author_id) {
-      query.AuthorId = req.query.author_id;
-    }
-    // 1. Add a join here to include all of the Organization to these Events
     db.Event.findAll({
-      where: query,
       include: {
-        model: db.Organization,
-        attributes: { exclude: ["updatedAt"] } //FIX******
-      },
-      attributes: { exclude: ["AuthorId", "updatedAt"] } //FIX******
+        model: db.Organization
+        // attributes: { exclude: ["updatedAt"] } //FIX******
+      }
+      // attributes: { exclude: ["AuthId", "updatedAt"] } //FIX******
     }).then(dbEvent => {
       res.json(dbEvent);
     });

@@ -23,7 +23,8 @@ module.exports = (sequelize, DataTypes) => {
     //Associating the Organization that created the Event
     Event.belongsTo(models.Organization, {
       foreignKey: {
-        allowNull: false,
+        allowNull: true,
+        defaultValue: 1,
       },
       // When an Organization is deleted, also delete any associated Events
       onDelete: "cascade",
