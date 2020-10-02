@@ -72,19 +72,6 @@ button,
 }
 
 
-/* DROPDOWN BUTTON FUNCTION/ COLORS */
-.dropdown {
-  font-family: cursive;
-  text-orientation: sideways;
-  height: 50px;
-  text-align: center;
-  padding-top: 75px;
-  width: 100px;
-  position: relative;
-  animation-fill-mode: both;
-  vertical-align: middle;
-}
-
 /* SCROLLER CONTROLLER */
 .marquee {
   padding-bottom: 10px;
@@ -132,51 +119,6 @@ button,
 }
 
 
-/* HOME BUTTON FUNCTIONALITY /*
-
-/* Dropdown Colors Default */
-.dropbtn {
-  background-color: #641E16;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  font-weight: 500;
-  border: none;
-}
-/* Button Hover Color */
-.dropdown:hover .dropbtn {
-  background-color: #1565C0;
-}           
-/* Dropdown Content */
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-/* Dropdown Content bg*/
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-/* Button Link Text */
-.dropdown-content a {
-  color: black;
-  font-family: sans-serif;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-/* Button on Hover */
-.dropdown-content a:hover {
-  background-color: #ddd;
-}
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
-  display: block;
-}
  
 
 /* BRAND COLORS 
