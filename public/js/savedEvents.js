@@ -5,7 +5,7 @@ $(document).ready(() => {
   // eventFeed holds all of our Events
   const eventFeed = $(".eventFeed");
   // Click events for the edit and delete buttons
-  $(document).on("click", "button.edit", handleEventEdit); //would need to make this save
+  $(document).on("click", "button.save", handleEventEdit); //would need to make this save
   // Variable to hold our Events
   let events;
 
