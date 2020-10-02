@@ -8,6 +8,13 @@ module.exports = function(app) {
   // Otherwise the user will be sent an error
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
     // Sending back a password, even a hashed password, isn't a good idea
+    console.log(
+      "this is req.user email and id" +
+        req.user.dataValues.email +
+        " " +
+        req.user.dataValues.id
+    );
+
     res.json({
       email: req.user.email,
       id: req.user.id
@@ -18,6 +25,9 @@ module.exports = function(app) {
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
   app.post("/api/signup", (req, res) => {
+    console.log(
+      "this is req.body name and email: " + req.body.name + " " + req.body.email
+    );
     db.User.create({
       id: uuidv4(),
       name: req.body.name,
