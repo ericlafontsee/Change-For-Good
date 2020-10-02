@@ -36,7 +36,7 @@ $(document).ready(() => {
       password: password
     })
       .then(() => {
-        window.location.replace("/members");
+        window.location.replace("/userLanding.html");
         // If there's an error, handle it by throwing up a bootstrap alert
       })
       .catch(handleLoginErr);
