@@ -2,21 +2,20 @@ const db = require("../models");
 
 module.exports = function(app) {
   // GET route for getting all of the events
-  app.get("/api/event", (req, res) => {
+  app.get("/api/events", (req, res) => {
     db.Event.findAll({
       include: {
         model: db.Organization
-        // attributes: { exclude: ["updatedAt"] } //FIX******
+        // attributes: { exclude: ["updatedAt"] } FIX******
       }
-      // attributes: { exclude: ["AuthId", "updatedAt"] } //FIX******
     }).then(dbEvent => {
       res.json(dbEvent);
     });
   });
 
   // Get route for retrieving a single Event
-  app.get("/api/event/:id", (req, res) => {
-    // 2. Add a join here to include the Organization who wrote the Event
+  app.get("/api/events/:id", (req, res) => {
+    // A join here to include the Organization who wrote the Event
     db.Event.findOne({
       where: {
         id: req.params.id
@@ -29,14 +28,14 @@ module.exports = function(app) {
   });
 
   // POST route for saving a new Event
-  app.post("/api/event", (req, res) => {
+  app.post("/api/events", (req, res) => {
     db.Event.create(req.body).then(dbEvent => {
       res.json(dbEvent);
     });
   });
 
   // DELETE route for deleting Events
-  app.delete("/api/event/:id", (req, res) => {
+  app.delete("/api/events/:id", (req, res) => {
     db.Event.destroy({
       where: {
         id: req.params.id
@@ -47,7 +46,7 @@ module.exports = function(app) {
   });
 
   // PUT route for updating Event
-  app.put("/api/event", (req, res) => {
+  app.put("/api/events", (req, res) => {
     db.Event.update(req.body, {
       where: {
         id: req.body.id
