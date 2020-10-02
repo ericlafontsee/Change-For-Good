@@ -5,7 +5,7 @@ $(document).ready(() => {
   // eventFeed holds all of our Events
   const eventFeed = $(".eventFeed");
   // Click events for the edit and delete buttons
-  $(document).on("click", "button.save", handleEventEdit); //would need to make this save
+  $(document).on("click", "button.edit", handleEventEdit); //would need to make this save
   // Variable to hold our Events
   let events;
 
@@ -57,12 +57,12 @@ $(document).ready(() => {
     newEventCard.addClass("card");
     const newEventCardHeading = $("<div>");
     newEventCardHeading.addClass("card-header");
-    // const deleteBtn = $("<button>");
-    // deleteBtn.text("x");
-    // deleteBtn.addClass("delete btn btn-danger");
-    const saveBtn = $("<button>");
-    saveBtn.text("SAVE");
-    saveBtn.addClass("save btn btn-info");
+    const deleteBtn = $("<button>");
+    deleteBtn.text("x");
+    deleteBtn.addClass("delete btn btn-danger");
+    const editBtn = $("<button>");
+    editBtn.text("EDIT");
+    editBtn.addClass("edit btn btn-info");
     const newEventTitle = $("<h2>");
     const newEventDate = $("<small>");
     const newEventOrganization = $("<h5>");
@@ -79,8 +79,8 @@ $(document).ready(() => {
     newEventBody.text(event.body);
     newEventDate.text(formattedDate);
     newEventTitle.append(newEventDate);
-    // newEventCardHeading.append(deleteBtn);
-    newEventCardHeading.append(saveBtn);
+    newEventCardHeading.append(deleteBtn);
+    newEventCardHeading.append(editBtn);
     newEventCardHeading.append(newEventTitle);
     newEventCardHeading.append(newEventOrganization);
     newEventCardBody.append(newEventBody);
