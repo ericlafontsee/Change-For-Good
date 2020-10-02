@@ -14,7 +14,7 @@ module.exports = function(app) {
   // Route for signing up Organization
   app.post("/api/orgsignup", (req, res) => {
     db.Organization.create({
-      id: UUIDV4();
+      id: UUIDV4(),
       name: req.body.name,
       email: req.body.email,
       password: req.body.password,
