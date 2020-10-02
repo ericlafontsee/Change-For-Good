@@ -91,11 +91,19 @@ $(document).ready(() => {
   }
   // This function figures out which Event we want to edit and takes it to the appropriate url
   function handleEventEdit() {
+    // event = $(this).parent().parent().data("event");
+    // console.log(event.id);
+    
+    console.log("hit button");
     const currentEvent = $(this)
-      .parent()
-      .parent()
-      .data("event");
-    window.location.href = "/cms?event_id=" + currentEvent.id;
+    .parent()
+    .parent()
+    .data("event");
+
+    $.post(`/api/userevents/${currentEvent.id}`).then(function(result) {
+      console.log(result);
+    })
+    // window.location.href = "/cms?event_id=" + currentEvent.id;
   }
 
   // This function displays a message when there are no events

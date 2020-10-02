@@ -74,8 +74,21 @@ module.exports = function(app) {
     }
   });
 
+  //route to post eventid and userid
+  app.post("/api/userevents/:id", (req, res) => {
+    db.Event.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(result) {
+      console.log(result);
+      result.setUsers(req.user.id);
+      res.send(result);
+    })
+  });
+
   //this is user's landing page after login displaying all events saved
-  app.get("/api/user/:id", (req, res) => {
+  app.get("/api/userevents/:id", (req, res) => {
     // A join to include all of the Organization's Events here
     db.User.findOne({
       where: {
