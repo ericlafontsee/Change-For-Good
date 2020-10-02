@@ -1,6 +1,8 @@
 const db = require("../models");
 const passport = require("../config/passport");
-const { UUIDV4 } = require("sequelize/types");
+// const { UUIDV4 } = require("sequelize/types");
+const { v4: uuidv4 } = require("uuid");
+
 
 module.exports = function(app) {
   app.post("/api/orglogin", passport.authenticate("local"), (req, res) => {
@@ -14,7 +16,7 @@ module.exports = function(app) {
   // Route for signing up Organization
   app.post("/api/orgsignup", (req, res) => {
     db.Organization.create({
-      id: UUIDV4(),
+      id: uuidv4(),
       name: req.body.name,
       email: req.body.email,
       password: req.body.password,
