@@ -31,8 +31,8 @@ $(document).ready(() => {
   // Otherwise we log any errors
   function signUpUser(email, name, password) {
     $.post("/api/signup", {
-      email: email,
       name: name,
+      email: email,
       password: password
     })
       .then(() => {
