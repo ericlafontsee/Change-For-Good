@@ -11,7 +11,7 @@ $(document).ready(() => {
   const descriptionInput = $("input#description");
 
   // When the signup button is clicked, we validate the email and password are not blank
-  createEventForm.on("submit", (event) => {
+  createEventForm.on("submit", event => {
     event.preventDefault();
     const eventData = {
       id: UUID(),
