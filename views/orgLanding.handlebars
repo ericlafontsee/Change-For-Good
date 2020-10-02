@@ -1,0 +1,33 @@
+<body>
+    <div class="container">
+        <header>
+            Welcome, <span class="userName"> {{ name }} </span>
+        </header>
+        <h2>What would you like to do?</h2>
+        <a href="#"><button>Create an Events</button></a>
+        <a href="#"><button>Browse All Events</button></a>
+        <section>
+            <article class="orgEventFeed">
+                <h2> Your Events</h2>
+            </article>
+            <div class="row">
+                {{#each events}}
+                {{!-- if OrganizationID is this ID --}}
+                {{#if saved}} 
+                <div class="card">
+                    <h5 class="text-center">{{ title }}</h5>
+                    <p>{{eventDate}}</p>
+                    <p>{{description}}</p>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                </div>
+                {{/if}}
+                {{/each}}
+            </div>
+        </section>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.0/moment.min.js"
+            type="text/javascript"></script>
+        <script type="text/javascript" src="js/members.js"></script>
+        <script type="text/javascript" src="js/orgEvents.js"></script>
+</body>
