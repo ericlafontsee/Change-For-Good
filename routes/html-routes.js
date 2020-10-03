@@ -19,7 +19,9 @@ module.exports = function(app) {
   app.get("/signup", (req, res) => {
     // If the user already has an account send them to the members page??
     if (req.user) {
-      res.redirect("/userLanding.html");
+      // res.redirect("/userLanding.html");
+      res.redirect("../views/userLanding.handlebars");
+
     }
     res.sendFile(path.join(__dirname, "../public/signup.html"));
   });
@@ -37,7 +39,8 @@ module.exports = function(app) {
   // If a user who is not logged in tries to access this route they will be redirected to the login page
   app.get("/members", isAuthenticated, (req, res) => {
     if(req.user){
-    res.sendFile(path.join(__dirname, "../public/userLanding.html"));
+    // res.sendFile(path.join(__dirname, "../public/userLanding.html"));
+      res.render("../views/userLanding.handlebars");
     }else{
 
    
