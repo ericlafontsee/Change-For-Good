@@ -26,6 +26,10 @@ app.use(passport.session());
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
+
+//to fix mime error
+app.use(express.static("public"));
+
 // Requiring our routes
 require("./routes/html-routes.js")(app);
 require("./routes/event-api-routes.js")(app);
