@@ -29,7 +29,7 @@ $(document).ready(() => {
     if (organizationId) {
       organizationId = "/?organization_id=" + organizationId;
     }
-    $.get("/api/Events" + organizationId, data => {
+    $.get("/api/Events" + organizationId, (data) => {
       console.log("Events", data);
       events = data;
       if (!events || !events.length) {
@@ -48,7 +48,24 @@ $(document).ready(() => {
     }
     eventFeed.append(eventsToAdd);
   }
+  function displayUserEvents(data) {
+    let htmlString = "";
+    // console.log(eventsArr);
+    // for (let i = 0; i < eventsArr.length; i++) {
+      htmlString += `
+    <div class="card">
+    <p class="card-title">${data.title}</p>
+    <p class="card-body">${data.description}</p>
+    <p class="card-body">${data.eventDate}</p>
+    `;
+    // }
+    $("#savedEventFeed").append(htmlString);
+    console.log(htmlString);
+  }
 
+  $.get("/api/userevents/").then(function(records){
+    console.log(records);
+  })
   // This function constructs a event's HTML
   function createNewRow(event) {
     let formattedDate = new Date(event.createdAt);
@@ -93,16 +110,18 @@ $(document).ready(() => {
   function handleEventEdit() {
     // event = $(this).parent().parent().data("event");
     // console.log(event.id);
-    
+
     console.log("hit button");
     const currentEvent = $(this)
-    .parent()
-    .parent()
-    .data("event");
+      .parent()
+      .parent()
+      .data("event");
 
     $.post(`/api/userevents/${currentEvent.id}`).then(function(result) {
       console.log(result);
-    })
+      displayUserEvents(result);
+
+    });
     // window.location.href = "/cms?event_id=" + currentEvent.id;
   }
 

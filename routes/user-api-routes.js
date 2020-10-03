@@ -11,12 +11,11 @@ module.exports = function(app) {
     // A join to include all of each Users's Events
     db.User.findAll({
       include: db.Event
-    }).then(dbUser => {
+    }).then((dbUser) => {
       res.json(dbUser);
     });
-    
   });
-  
+
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
     // Sending back a password, even a hashed password, isn't a good idea
     console.log(
@@ -48,7 +47,7 @@ module.exports = function(app) {
       .then(() => {
         res.redirect(307, "/api/login");
       })
-      .catch(err => {
+      .catch((err) => {
         res.status(401).json(err);
       });
   });
@@ -83,9 +82,19 @@ module.exports = function(app) {
       }
     }).then(function(result) {
       console.log(result);
-      result.setUsers(req.user.id);
-      res.send(result);
-    })
+      // result.setUsers(req.params.id);
+      // res.send(result);
+    });
+  });
+
+  app.get("/api/userevents/", (req, res) => {
+    db.Event.findAll({
+ 
+    }).then(function(result) {
+      console.log(result);
+      // result.setUsers(req.params.id);
+      // res.send(result);
+    });
   });
 
   //this is user's landing page after login displaying all events saved
@@ -96,7 +105,7 @@ module.exports = function(app) {
         id: req.user.id
       },
       include: db.Event //automatically gets all Events assoiated with that Organization
-    }).then(dbUser => {
+    }).then((dbUser) => {
       res.json(dbUser);
     });
   });
@@ -106,7 +115,7 @@ module.exports = function(app) {
     // A join to include all of each Organization's Events
     db.Event.findAll({
       include: db.Organization
-    }).then(dbEvent => {
+    }).then((dbEvent) => {
       res.json(dbEvent);
     });
   });
