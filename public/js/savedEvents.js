@@ -4,10 +4,12 @@ $(document).ready(() => {
 
   // eventFeed holds all of our Events
   const eventFeed = $(".eventFeed");
+  const savedEventFeed = $(".savedEventFeed");
   // Click events for the edit and delete buttons
   $(document).on("click", "button.save", handleEventEdit); //would need to make this save
   // Variable to hold our Events
   let events;
+  let savedEvents;
 
   // The code below handles the case where we want to get blog Events for a specific organization
   // Looks for a query param in the url for organization_id
@@ -21,6 +23,7 @@ $(document).ready(() => {
   // If there's no organizationId we just get all Events as usual
   else {
     getEvents();
+    getSavedEvents();
   }
 
   // This function grabs Events from the database and updates the view
@@ -39,6 +42,19 @@ $(document).ready(() => {
       }
     });
   }
+
+  //this function grabs saved events from user and updates view
+  function getSavedEvents() {
+    $.get("/api/userevents/:id", data => {
+      console.log("Events", data);
+      savedEvents = data;
+      if (!events || !events.length) {
+        displaySavedEmpty(organization);
+      } else {
+        initializeSavedRows();
+      }
+    });
+  }
   // InitializeRows handles appending all of our constructed Event HTML inside eventFeed
   function initializeRows() {
     eventFeed.empty();
@@ -47,6 +63,16 @@ $(document).ready(() => {
       eventsToAdd.push(createNewRow(events[i]));
     }
     eventFeed.append(eventsToAdd);
+  }
+
+  //initializeSavedRows handles appending all of our constructed saved event html inside savedEventFeed
+  function initializeSavedRows() {
+    savedEventFeed.empty();
+    const eventsToAdd = [];
+    for (let i = 0; i < events.length; i++) {
+      eventsToAdd.push(createNewRow(events[i]));
+    }
+    savedEventFeed.append(eventsToAdd);
   }
 
   // This function constructs a event's HTML
@@ -124,5 +150,25 @@ $(document).ready(() => {
         "'>here</a> in order to get started."
     );
     eventFeed.append(messageH2);
+  }
+
+  //this function displays a message when there are no saved events
+  function displaySavedEmpty(id) {
+    const query = window.location.search;
+    let partial = "";
+    if (id) {
+      partial = " for Organization #" + id;
+    }
+    savedEventFeed.empty();
+    const messageH2 = $("<h2>");
+    messageH2.css({ "text-align": "center", "margin-top": "50px" });
+    messageH2.html(
+      "No events yet" +
+        partial +
+        ", navigate <a href='/cms" +
+        query +
+        "'>here</a> in order to get started."
+    );
+    savedEventFeed.append(messageH2);
   }
 });
