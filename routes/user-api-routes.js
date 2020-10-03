@@ -92,7 +92,7 @@ module.exports = function(app) {
     // A join to include all of the Organization's Events here
     db.User.findOne({
       where: {
-        id: req.params.id
+        id: req.user.id
       },
       include: db.Event //automatically gets all Events assoiated with that Organization
     }).then(dbUser => {
