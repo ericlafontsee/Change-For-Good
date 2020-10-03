@@ -23,7 +23,9 @@ module.exports = function(app) {
       res.redirect("../views/userLanding.handlebars");
 
     }
-    res.sendFile(path.join(__dirname, "../public/signup.html"));
+    // res.sendFile(path.join(__dirname, "../public/signup.html"));
+    res.render("../views/userSignup.handlebars");
+
   });
 
   //loads the organization sign up page
