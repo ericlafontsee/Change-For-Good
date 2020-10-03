@@ -1,27 +1,41 @@
 <body>
     <div class="container">
-        <h1>Welcome, <span class="userName">{{ name }}</span></h1>
-        {{!-- When user clicks this button they see all events --}}
-        <a href="#"><button>Browse All Events</button></a>
-        <section>
-            <h2>Saved Events</h2>
-            {{!-- The container that holds saved event --}}
-            <article class="userEventFeed">
-                <div class="row">
-                    {{#each events}}
-                    {{#if saved}}
-                    <div class="card">
-                        <h5 class="text-center">{{ title }}</h5>
-                        <h6>{{organization}}</h6>
-                        <p>{{eventDate}}</p>
-                        <p>{{description}}</p>
-                        <button>Save</button>
-                    </div>
-                    {{/if}}
-                    {{/each}}
-                </div>
-            </article>
-        </section>
+        <div class="jumbotron">
+        <img class="icon" src="/public/images/elephantwhite.png" width="50" height="50" class="d-inline-block align-top" alt="elphant freeicon.com">
+            <h1 class="display-3">Welcome <span class="userName">{{ name }}</span></h1>
+            <p class="lead">Optional Sub-heading Text</p>
+        </div>
+        <div class="row user feed">
+            <div class="col-lg-6">
+                <a href="#"><button>Browse All Events</button></a>
+                <section>
+                    <h2>{{ name }}'s Saved Events</h2>
+                    {{!-- The container that holds saved event --}}
+                <div class="container">
+                    <article class="userEventFeed">
+                        <div class="row">
+                            {{#each events}}
+                            {{#if saved}}
+                            <div class="card">
+                                <div class="card-body">
+                                <h5 class="text-center">{{ title }}</h5>
+                                <h6>{{organization}}</h6>
+                                <p>{{eventDate}}</p>
+                                <p>{{description}}</p>
+                                <button>Save</button>
+                                </div>
+                            </div>
+                            {{/if}}
+                            {{/each}}
+                        </div>
+                    </article>
+                </div> 
+                </section>
+                    
+            </div>
+        </div>
+    </div>    
+    
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.0/moment.min.js"
