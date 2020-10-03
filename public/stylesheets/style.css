@@ -8,6 +8,7 @@ form.login {
   position: fixed;
   z-index: 20;
   align-items: center;
+  display: flexnode;
 }
 
 
