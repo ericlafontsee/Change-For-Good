@@ -8,9 +8,11 @@ module.exports = function(app) {
   app.get("/", (req, res) => {
     // If the user already has an account send them to the login page
     if (req.user) {
-      res.redirect("/login");
+      // res.redirect("/login");
+      res.render("../views/userLanding.handlebars");
     }
-    res.sendFile(path.join(__dirname, "../public/login.html"));
+    // res.sendFile(path.join(__dirname, "../public/login.html"));
+    res.render("../views/login.handlebars");
   });
 
   //loads the user signup page
