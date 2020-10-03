@@ -10,7 +10,8 @@ module.exports = function(app) {
     if (req.user) {
       res.redirect("/login");
     }
-    res.sendFile(path.join(__dirname, "../public/login.html"));
+    // res.sendFile(path.join(__dirname, "../public/login.html"));
+    res.render("../views/login.handlebars");
   });
 
   //loads the user signup page
@@ -19,7 +20,8 @@ module.exports = function(app) {
     if (req.user) {
       res.redirect("/userLanding.html");
     }
-    res.sendFile(path.join(__dirname, "../public/signup.html"));
+    // res.sendFile(path.join(__dirname, "../public/signup.html"));
+
   });
 
   //loads the organization sign up page
