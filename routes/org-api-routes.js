@@ -4,12 +4,14 @@ const passport = require("../config/passport");
 const { v4: uuidv4 } = require("uuid");
 
 module.exports = function(app) {
-  app.post("/api/orglogin", passport.authenticate("local"), (req, res) => {
+  app.post("/api/orglogin", passport.authenticate("local-org"), (req, res) => {
     // Sending back a password, even a hashed password, isn't a good idea
     console.log("you hit api/orglogin route");
     res.json({
-      email: req.Organization.email,
-      id: req.Organization.id
+      // email: req.Organization.email,
+      email: req.user.email,
+      // id: req.Organization.id
+      id: req.user.id
     });
   });
 
@@ -24,7 +26,7 @@ module.exports = function(app) {
       website: req.body.website
     })
       .then(() => {
-        res.redirect(307, "/api/login");
+        res.redirect(307, "/api/orglogin");
       })
       .catch(err => {
         res.status(401).json(err);
