@@ -49,7 +49,7 @@ $(document).ready(() => {
       console.log("Events", data);
       console.log("data.events", data.Events);
       savedEvents = data.Events;
-      if (!events || !events.length) {
+      if (!savedEvents || !savedEvents.length) {
         displaySavedEmpty(organization);
       } else {
         initializeSavedRows();
@@ -134,7 +134,7 @@ $(document).ready(() => {
     const newEventTitle = $("<h2>");
     const newEventDate = $("<small>");
     const newEventOrganization = $("<h5>");
-    newEventOrganization.text("Event Description: " + savedEvent.description);
+    newEventOrganization.text("Event Description: " + savedEvents.description);
     newEventOrganization.css({
       float: "right",
       color: "blue",
