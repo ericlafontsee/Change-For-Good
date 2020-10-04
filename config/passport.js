@@ -46,6 +46,7 @@ passport.use(
     },
     (email, password, done) => {
       // When a user tries to sign in this code runs
+      console.log("hit local-org passport path");
       db.Organization.findOne({
         where: {
           email: email
