@@ -37,12 +37,12 @@ module.exports = (sequelize, DataTypes) => {
         });
     };
     // Creating a custom method for our Organization model. This will check if an unhashed password entered by the Organization can be compared to the hashed password stored in our database
-    Organization.prototype.validPassword = password => {
+    Organization.prototype.validPassword = function(password) {
         return bcrypt.compareSync(password, this.password);
     };
     // Hooks are automatic methods that run during various phases of the Organization Model lifecycle
     // In this case, before a Organization is created, we will automatically hash their password
-    Organization.addHook("beforeCreate", Organization => {
+    Organization.addHook("beforeCreate", function(Organization) {
         Organization.password = bcrypt.hashSync(
             Organization.password,
             bcrypt.genSaltSync(10),
