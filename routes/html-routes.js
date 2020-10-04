@@ -30,9 +30,11 @@ module.exports = function(app) {
   app.get("/orgsignup", (req, res) => {
     // If the user already has an account send them to the org's page??
     if (req.user) {
-      res.redirect("/orgLanding.html");
+      // res.redirect("/orgLanding.html");
+      res.render("../views/orgLanding.handlebars");
     }
-    res.sendFile(path.join(__dirname, "../public/orgSignup.html"));
+    // res.sendFile(path.join(__dirname, "../public/orgSignup.html"));
+    res.render("../views/orgSignup.handlebars");
   });
 
   // Here we've add our isAuthenticated middleware to this route.
@@ -42,7 +44,8 @@ module.exports = function(app) {
       // res.sendFile(path.join(__dirname, "../public/userLanding.html"));
       res.render("../views/userLanding.handlebars");
     } else {
-      res.sendFile(path.join(__dirname, "../public/login.html"));
+      // res.sendFile(path.join(__dirname, "../public/login.html"));
+      res.render("../views/login.handlebars");
     }
   });
 };

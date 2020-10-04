@@ -2,8 +2,8 @@
 $(document).ready(() => {
   /* global moment */
 
-  // eventFeed holds all of our Events
-  const eventFeed = $(".eventFeed");
+  // orgEventFeed holds all of our Events
+  const orgEventFeed = $(".orgEventFeed");
   // Click events for the edit and delete buttons
   $(document).on("click", "button.edit", handleEventEdit); //would need to make this save
   // Variable to hold our Events
@@ -39,14 +39,14 @@ $(document).ready(() => {
       }
     });
   }
-  // InitializeRows handles appending all of our constructed Event HTML inside eventFeed
+  // InitializeRows handles appending all of our constructed Event HTML inside orgEventFeed
   function initializeRows() {
-    eventFeed.empty();
+    orgEventFeed.empty();
     const eventsToAdd = [];
     for (let i = 0; i < events.length; i++) {
       eventsToAdd.push(createNewRow(events[i]));
     }
-    eventFeed.append(eventsToAdd);
+    orgEventFeed.append(eventsToAdd);
   }
 
   // This function constructs a event's HTML
@@ -105,7 +105,7 @@ $(document).ready(() => {
     if (id) {
       partial = " for Organization #" + id;
     }
-    eventFeed.empty();
+    orgEventFeed.empty();
     const messageH2 = $("<h2>");
     messageH2.css({ "text-align": "center", "margin-top": "50px" });
     messageH2.html(
@@ -115,6 +115,6 @@ $(document).ready(() => {
         query +
         "'>here</a> in order to get started."
     );
-    eventFeed.append(messageH2);
+    orgEventFeed.append(messageH2);
   }
 });
