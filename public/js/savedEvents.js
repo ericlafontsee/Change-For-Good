@@ -47,7 +47,8 @@ $(document).ready(() => {
   function getSavedEvents() {
     $.get("/api/userevents/:id", data => {
       console.log("Events", data);
-      savedEvents = data;
+      console.log("data.events", data.Events);
+      savedEvents = data.Events;
       if (!events || !events.length) {
         displaySavedEmpty(organization);
       } else {
@@ -69,8 +70,8 @@ $(document).ready(() => {
   function initializeSavedRows() {
     savedEventFeed.empty();
     const eventsToAdd = [];
-    for (let i = 0; i < events.length; i++) {
-      eventsToAdd.push(createNewRow(events[i]));
+    for (let i = 0; i < savedEvents.length; i++) {
+      eventsToAdd.push(createNewSavedRow(savedEvents[i]));
     }
     savedEventFeed.append(eventsToAdd);
   }
@@ -113,6 +114,47 @@ $(document).ready(() => {
     newEventCard.append(newEventCardHeading);
     newEventCard.append(newEventCardBody);
     newEventCard.data("event", event);
+    return newEventCard;
+  }
+
+  // This function constructs a saved event's HTML
+  function createNewSavedRow(savedEvents) {
+    let formattedDate = new Date(savedEvents.eventDate);
+    formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
+    const newEventCard = $("<div>");
+    newEventCard.addClass("card");
+    const newEventCardHeading = $("<div>");
+    newEventCardHeading.addClass("card-header");
+    // const deleteBtn = $("<button>");
+    // deleteBtn.text("x");
+    // deleteBtn.addClass("delete btn btn-danger");
+    // const saveBtn = $("<button>");
+    // saveBtn.text("SAVE");
+    // saveBtn.addClass("save btn btn-info");
+    const newEventTitle = $("<h2>");
+    const newEventDate = $("<small>");
+    const newEventOrganization = $("<h5>");
+    newEventOrganization.text("Event Description: " + savedEvent.description);
+    newEventOrganization.css({
+      float: "right",
+      color: "blue",
+      "margin-top": "-10px"
+    });
+    const newEventCardBody = $("<div>");
+    newEventCardBody.addClass("card-body");
+    const newEventBody = $("<p>");
+    newEventTitle.text(savedEvents.title + " ");
+    // newEventBody.text(event.body);
+    newEventDate.text(formattedDate);
+    newEventTitle.append(newEventDate);
+    // newEventCardHeading.append(deleteBtn);
+    // newEventCardHeading.append(saveBtn);
+    newEventCardHeading.append(newEventTitle);
+    newEventCardHeading.append(newEventOrganization);
+    newEventCardBody.append(newEventBody);
+    newEventCard.append(newEventCardHeading);
+    newEventCard.append(newEventCardBody);
+    newEventCard.data("savedEvents", savedEvents);
     return newEventCard;
   }
   // This function figures out which Event we want to edit and takes it to the appropriate url
