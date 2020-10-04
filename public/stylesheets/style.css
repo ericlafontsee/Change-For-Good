@@ -36,11 +36,14 @@ article {
 }
 
 
-/* BLOGGER BOX ADJUSTMENTS */
 section {
   display: flex;
   font-family: sans-serif;
 }
+/* #logoutBtn{
+  padding: 20px;
+  margin: 0 auto;
+} */
 article {
   flex: 1 200px;
 }
