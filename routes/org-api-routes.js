@@ -6,6 +6,7 @@ const { v4: uuidv4 } = require("uuid");
 module.exports = function(app) {
   app.post("/api/orglogin", passport.authenticate("local"), (req, res) => {
     // Sending back a password, even a hashed password, isn't a good idea
+    console.log("you hit api/orglogin route");
     res.json({
       email: req.Organization.email,
       id: req.Organization.id
