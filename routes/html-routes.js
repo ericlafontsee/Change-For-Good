@@ -21,11 +21,9 @@ module.exports = function(app) {
     if (req.user) {
       // res.redirect("/userLanding.html");
       res.render("../views/userLanding.handlebars");
-
     }
     // res.sendFile(path.join(__dirname, "../public/signup.html"));
     res.render("../views/userSignup.handlebars");
-
   });
 
   //loads the organization sign up page
@@ -40,13 +38,11 @@ module.exports = function(app) {
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the login page
   app.get("/members", isAuthenticated, (req, res) => {
-    if(req.user){
-    // res.sendFile(path.join(__dirname, "../public/userLanding.html"));
+    if (req.user) {
+      // res.sendFile(path.join(__dirname, "../public/userLanding.html"));
       res.render("../views/userLanding.handlebars");
-    }else{
-
-   
-    res.sendFile(path.join(__dirname, "../public/login.html"));
-  }
+    } else {
+      res.sendFile(path.join(__dirname, "../public/login.html"));
+    }
   });
 };
