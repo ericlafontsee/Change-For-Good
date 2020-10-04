@@ -1,4 +1,4 @@
-const uuid = require("uuid");
+// const uuid = require("uuid");
 $(document).ready(() => {
   // Getting references to our form and input
   const createEventForm = $("form.createEvent");
@@ -18,7 +18,7 @@ $(document).ready(() => {
       title: titleInput.val().trim(),
       eventDate: dateInput, //?
       description: descriptionInput.val().trim(),
-      organization: $(this).OrganizationId, //??
+      organization: $(this).OrganizationId //??
     };
     console.log(eventData);
     if (!eventData.title || !eventData.description) {
@@ -40,7 +40,7 @@ $(document).ready(() => {
       id,
       title,
       eventDate,
-      description,
+      description
     })
       .then(() => {
         window.location.replace("/orgLanding.html");

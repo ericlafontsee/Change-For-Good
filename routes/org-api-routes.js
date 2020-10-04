@@ -3,7 +3,6 @@ const passport = require("../config/passport");
 // const { UUIDV4 } = require("sequelize/types");
 const { v4: uuidv4 } = require("uuid");
 
-
 module.exports = function(app) {
   app.post("/api/orglogin", passport.authenticate("local"), (req, res) => {
     // Sending back a password, even a hashed password, isn't a good idea

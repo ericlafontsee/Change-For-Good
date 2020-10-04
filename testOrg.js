@@ -1,8 +1,8 @@
-const db = require('./models');
-const Fakerator = require('fakerator');
+const db = require("./models");
+const Fakerator = require("fakerator");
 const fakerator = Fakerator();
 const items = [];
-const { v4: uuidv4 } = require('uuid');
+const { v4: uuidv4 } = require("uuid");
 
 for (let i = 0; i < 3; i++) {
   const entity = fakerator.entity.company();

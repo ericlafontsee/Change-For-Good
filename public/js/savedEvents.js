@@ -161,16 +161,16 @@ $(document).ready(() => {
   function handleEventEdit() {
     // event = $(this).parent().parent().data("event");
     // console.log(event.id);
-    
+
     console.log("hit button");
     const currentEvent = $(this)
-    .parent()
-    .parent()
-    .data("event");
+      .parent()
+      .parent()
+      .data("event");
 
-    $.post(`/api/userevents/${currentEvent.id}`).then(function(result) {
+    $.post(`/api/userevents/${currentEvent.id}`).then(result => {
       console.log(result);
-    })
+    });
     // window.location.href = "/cms?event_id=" + currentEvent.id;
   }
 

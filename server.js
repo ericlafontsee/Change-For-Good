@@ -20,7 +20,7 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-  
+
 // Set Handlebars.
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
@@ -34,7 +34,6 @@ require("./routes/html-routes.js")(app);
 require("./routes/event-api-routes.js")(app);
 require("./routes/org-api-routes.js")(app);
 require("./routes/user-api-routes.js")(app);
-
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync({ force: false }).then(() => {

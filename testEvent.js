@@ -6,7 +6,6 @@ const testEvents = [];
 
 db.sequelize.sync().then(() => {
   db.Organization.findAll({}).then(results => {
-    
     for (let i = 0; i < 10; i++) {
       const random = Math.floor(Math.random() * results.length);
       const randomOrg = JSON.parse(JSON.stringify(results[random]));

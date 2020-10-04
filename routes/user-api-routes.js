@@ -14,9 +14,8 @@ module.exports = function(app) {
     }).then(dbUser => {
       res.json(dbUser);
     });
-    
   });
-  
+
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
     // Sending back a password, even a hashed password, isn't a good idea
     console.log(
@@ -81,11 +80,11 @@ module.exports = function(app) {
       where: {
         id: req.params.id
       }
-    }).then(function(result) {
+    }).then(result => {
       console.log(result);
       result.setUsers(req.user.id);
       res.send(result);
-    })
+    });
   });
 
   //this is user's landing page after login displaying all events saved
@@ -109,5 +108,11 @@ module.exports = function(app) {
     }).then(dbEvent => {
       res.json(dbEvent);
     });
+  });
+
+  //log user out
+  app.get("/logout", (req, res) => {
+    req.logout();
+    res.redirect("/");
   });
 };
