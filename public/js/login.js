@@ -9,12 +9,12 @@ $(document).ready(() => {
   // const description = $("input#eventDesc");
 
   // When the form is submitted, we validate there's an email and password entered
-  loginForm.on("submit", (event) => {
+  loginForm.on("submit", event => {
     event.preventDefault();
 
     const userData = {
       email: emailInput.val().trim(),
-      password: passwordInput.val().trim(),
+      password: passwordInput.val().trim()
     };
 
     if (!userData.email || !userData.password) {
@@ -28,11 +28,11 @@ $(document).ready(() => {
     passwordInput.val("");
   });
 
-  eventForm.on("submit", (event) => {
+  eventForm.on("submit", event => {
     event.preventDefault();
     const eventData = {
       title: title.val().trim(),
-      description: description.val(),
+      description: description.val()
     };
 
     if (!eventData.title || !eventData.description) {
@@ -45,52 +45,51 @@ $(document).ready(() => {
     description.val("");
   });
 
-  // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
   function loginUser(email, password) {
+    //checks the value of the radio in the login form
     const loginType = $('input[name="login-type"]:checked').val();
-    alert(loginType);
     if (loginType === "User") {
+      // does a post to our "api/login" route and redirects us the the members page
       $.post("/api/login", {
         email: email,
-        password: password,
+        password: password
       })
         .then(() => {
-          // window.location.replace("/userLanding.html");
           window.location.replace("/members");
-          // If there's an error, log the error
         })
-        .catch((err) => {
+        .catch(err => {
+          alert("There was an error with your login. Please try again.");
           console.log(err);
         });
-    } else {
+    } else if (loginType === "Organization") {
+      // does a post to our "api/orglogin" route and redirects us the the organization's page
       $.post("/api/orglogin", {
         email: email,
-        password: password,
+        password: password
       })
         .then(() => {
           window.location.replace("/organization");
-
-          // If there's an error, log the error
         })
-        .catch((err) => {
+        .catch(err => {
+          alert("There was an error with your login. Please try again.");
           console.log(err);
         });
     }
   }
 
-  function createEvent(title, description) {
-    $.post("/api/events", {
-      title: title,
-      description: description,
-    })
-      .then(() => {
-        // window.location.replace("/userLanding.html");
-        window.location.replace("/");
+  // function createEvent(title, description) {
+  //   $.post("/api/events", {
+  //     title: title,
+  //     description: description
+  //   })
+  //     .then(() => {
+  //       // window.location.replace("/userLanding.html");
+  //       window.location.replace("/");
 
-        // If there's an error, log the error
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
+  //       // If there's an error, log the error
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }
 });

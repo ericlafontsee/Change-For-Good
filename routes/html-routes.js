@@ -58,4 +58,14 @@ module.exports = function(app) {
       res.render("../views/login.handlebars");
     }
   });
+
+  app.get("/newevent", (req, res) => {
+    // If the user already has an account send them to the org's page??
+    if (req.organization) {
+      // res.redirect("/orgLanding.html");
+      res.render("../views/partials/createEvent.handlebars");
+    }
+    // res.sendFile(path.join(__dirname, "../public/orgSignup.html"));
+    // res.render("../views/login.handlebars");
+  });
 };
