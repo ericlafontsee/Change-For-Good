@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "kpuqdeljxurrybm1",
-    "password": 	"qz8ofw5erobnyohs",
-    "database": "b6c0ls21do3ai8o8",
-    "host": "durvbryvdw2sjcm5.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "username": "root",
+    "password": null,
+    "database": "changeForGood_db",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
