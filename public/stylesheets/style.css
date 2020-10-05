@@ -4,27 +4,6 @@ form.login {
   margin-left: 50px;
 }
 
-.page-container {
-  background-color: white;
-  opacity: 0.9;
-  position: fixed;
-  z-index: 20;
-  align-items: center;
-  display: flexnode;
-}
-
-
-.body,
-.html {
- 
-  background-size: cover;
-  z-index: -1;
-  position: relative;
-  height: 100%;
-  background-size: cover;
-  z-index: -1;
-}
-
 /* BLOG BOX  */
 h1 {
   text-align: center;
@@ -59,22 +38,6 @@ section {
   justify-content: end;
   margin-top: 20px;
 }
-
-/* article {
-  flex: 1 200px;
-}
-article:nth-of-type(3) {
-  flex: 3 200px;
-  display: flex;
-  flex-flow: column;
-}
-article:nth-of-type(3) div:first-child {
-  flex: 1 100px;
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  justify-content: space-around;
-} */
 
 button,
 .button {
