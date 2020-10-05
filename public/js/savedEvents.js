@@ -11,6 +11,8 @@ $(document).ready(() => {
   let events;
   let savedEvents;
 
+  
+
   // The code below handles the case where we want to get blog Events for a specific organization
   // Looks for a query param in the url for organization_id
   const url = window.location.search;
@@ -74,6 +76,7 @@ $(document).ready(() => {
       eventsToAdd.push(createNewSavedRow(savedEvents[i]));
     }
     savedEventFeed.append(eventsToAdd);
+    location.reload("/");
   }
 
   // This function constructs a event's HTML
