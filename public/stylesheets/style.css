@@ -85,7 +85,7 @@ section {
 #logoutBtn {
   /* display: flex; */
   /* flex-flow: row nowrap; */
-  justify-content: end;
+   
   margin-top: 20px;
 }
 
