@@ -7,6 +7,7 @@ $(document).ready(() => {
   const savedEventFeed = $(".savedEventFeed");
   // Click events for the edit and delete buttons
   $(document).on("click", "button.save", handleEventEdit); //would need to make this save
+  $(document).on("click", "button.delete", deleteUserEvent); //would need to make this save
   // Variable to hold our Events
   let events;
   let savedEvents;
@@ -125,9 +126,9 @@ $(document).ready(() => {
     newEventCard.addClass("card");
     const newEventCardHeading = $("<div>");
     newEventCardHeading.addClass("card-header");
-    // const deleteBtn = $("<button>");
-    // deleteBtn.text("x");
-    // deleteBtn.addClass("delete btn btn-danger");
+    const deleteBtn = $("<button>");
+    deleteBtn.text("x");
+    deleteBtn.addClass("delete btn btn-danger");
     // const saveBtn = $("<button>");
     // saveBtn.text("SAVE");
     // saveBtn.addClass("save btn btn-info");
@@ -147,7 +148,7 @@ $(document).ready(() => {
     // newEventBody.text(event.body);
     newEventDate.text(formattedDate);
     newEventTitle.append(newEventDate);
-    // newEventCardHeading.append(deleteBtn);
+    newEventCardHeading.append(deleteBtn);
     // newEventCardHeading.append(saveBtn);
     newEventCardHeading.append(newEventTitle);
     newEventCardHeading.append(newEventOrganization);
@@ -173,6 +174,21 @@ $(document).ready(() => {
     });
     // window.location.href = "/cms?event_id=" + currentEvent.id;
   }
+
+  function deleteUserEvent() {
+    console.log("Delete");
+    console.log($(this));
+    const currentEvent = $(this);
+      // .parent()
+      // .parent()
+      // .data("event");
+
+    $.delete(`/api/userevents/${currentEvent.id}`).then(result => {
+      console.log(result);
+    });
+    // window.location.href = "/cms?event_id=" + currentEvent.id;
+  }
+
 
   // This function displays a message when there are no events
   function displayEmpty(id) {
