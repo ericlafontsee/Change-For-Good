@@ -36,13 +36,9 @@ $(document).ready(() => {
       email: email,
       password: password,
       website: website
-    })
-    return alert("organization created and added to database but cannot be logged in");
-
-  }
-
-  function handleLoginErr(err) {
-    $("#alert .msg").text(err.responseJSON);
-    $("#alert").fadeIn(500);
+    });
+    return alert(
+      "organization created and added to database but cannot be logged in"
+    );
   }
 });
