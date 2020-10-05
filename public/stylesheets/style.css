@@ -69,6 +69,8 @@ article {
 section {
   display: flex;
   font-family: sans-serif;
+  opacity: 0.9;
+
 }
 
 #logoutBtn {
@@ -76,6 +78,7 @@ section {
   /* flex-flow: row nowrap; */
    
   margin-top: 20px;
+  margin-left: 20px;
 }
 
 button,
