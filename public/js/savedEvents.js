@@ -173,6 +173,7 @@ $(document).ready(() => {
 
     $.post(`/api/userevents/${currentEvent.id}`).then(result => {
       console.log(result);
+      // location.reload();
     });
     // window.location.href = "/cms?event_id=" + currentEvent.id;
   }
