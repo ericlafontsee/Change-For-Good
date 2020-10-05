@@ -10,9 +10,6 @@ body {
   height:100%;
 }
 
-.icon {
-
-}
 .page-container {
   align-content: center;
   margin-left: auto;
@@ -46,7 +43,7 @@ form.login {
   background-color: #641E16;
   position: static;
 }
-body{
+/* body{
   background-image: url("../images/elephants.jpg");
   background-position: center center;
   background-repeat: no-repeat;
@@ -55,7 +52,7 @@ body{
   z-index: -4;
   margin: 0px;
   height:100%;
-}
+} */
 
 /* BLOG BOX  */
 h1 {
@@ -88,7 +85,7 @@ section {
 #logoutBtn {
   /* display: flex; */
   /* flex-flow: row nowrap; */
-  justify-content: end;
+   
   margin-top: 20px;
 }
 
