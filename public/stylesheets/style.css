@@ -1,4 +1,5 @@
 body { 
+
   background-image: url("../images/elephants.jpg");
   background-position: center center;
   background-repeat: no-repeat;
@@ -7,6 +8,22 @@ body {
   z-index: -4;
   margin: 0px;
   height:100%;
+}
+
+
+.page-container {
+  align-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  position: fixed;
+  z-index: 35;
+}
+
+.jumbotron {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #641E16;
+  position: static;
 }
 
 
@@ -23,6 +40,16 @@ form.login {
   padding-bottom: 10px;
   background-color: #641E16;
   position: static;
+}
+body{
+  background-image: url("../images/elephants.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: auto;
+  position: relative;
+  z-index: -4;
+  margin: 0px;
+  height:100%;
 }
 
 /* BLOG BOX  */
