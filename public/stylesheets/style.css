@@ -1,5 +1,4 @@
 body { 
-
   background-image: url("../images/elephants.jpg");
   background-position: center center;
   background-repeat: no-repeat;
@@ -23,8 +22,13 @@ body {
   padding-bottom: 10px;
   background-color: #000c70;
   position: static;
+  color: white;
+  
 }
 
+.display-3, .userName {
+  color: white;
+}
 
 form.signup,
 form.login {
