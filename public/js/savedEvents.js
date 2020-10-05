@@ -12,8 +12,6 @@ $(document).ready(() => {
   let events;
   let savedEvents;
 
-  
-
   // The code below handles the case where we want to get blog Events for a specific organization
   // Looks for a query param in the url for organization_id
   const url = window.location.search;
@@ -181,15 +179,14 @@ $(document).ready(() => {
     console.log("Delete");
     console.log($(this));
     const currentEvent = $(this);
-      // .parent()
-      // .parent()
-      // .data("event");
+    // .parent()
+    // .parent()
+    // .data("event");
 
     $.delete(`/api/userevents/${currentEvent.id}`).then(result => {
       console.log(result);
     });
   }
-
 
   // This function displays a message when there are no events
   function displayEmpty(id) {

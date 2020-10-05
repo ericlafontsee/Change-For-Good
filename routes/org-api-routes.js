@@ -23,15 +23,15 @@ module.exports = function(app) {
   );
 
   // Route for signing up Organization
-  app.post("/api/orgsignup", (req, res) => {
+  app.post("/api/orgsignup", req => {
     console.log("testing 1,2,3");
     db.Organization.create({
       id: uuidv4(),
       name: req.body.name,
       email: req.body.email,
       password: req.body.password,
-      website: req.body.website,
-    })
+      website: req.body.website
+    });
   });
 
   app.get("/logout", (req, res) => {
@@ -43,8 +43,8 @@ module.exports = function(app) {
   app.get("/api/organizations", (req, res) => {
     // A join to include all of each Organization's Events
     db.Organization.findAll({
-      include: db.Event,
-    }).then((dbOrg) => {
+      include: db.Event
+    }).then(dbOrg => {
       res.json(dbOrg);
     });
   });
@@ -54,10 +54,10 @@ module.exports = function(app) {
     // A join to include all of the Organization's Events here
     db.Organization.findOne({
       where: {
-        id: req.params.id,
+        id: req.params.id
       },
-      include: db.Event, // gets all Events assoiated with that Organization
-    }).then((dbOrg) => {
+      include: db.Event // gets all Events assoiated with that Organization
+    }).then(dbOrg => {
       res.json(dbOrg);
     });
   });
