@@ -1,11 +1,9 @@
-
 <div class="page-container" id="loginPage">
     <div class="icon">
-        <img src="../images/elephantred.png"  class="dance">   
+        <img src="../images/elephantblue.png" class="dance">
     </div>
-    
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-12 loginPage">
             <form class="login">
                 <h1>Welcome!</h1>
                 <h2>Please login to continue</h2>
@@ -17,40 +15,18 @@
                     <label for="password">Password: </label><br />
                     <input type="password" id="password" name="password">
                 </div><br />
-                {{!-- <div class="form-check">
-                    <input class="form-check-input" type="radio" name="login-type" id="logInUser"
-                        value="User" checked>
-                    <label class="form-check-label" for="user">
-                        Member
-                    </label>
-                </div> --}}
-                {{!-- <div class="form-check">
-                    <input class="form-check-input" type="radio" name="login-type" id="logInOrg"
-                        value="Organization">
-                    <label class="form-check-label" for="org">
-                        Organization
-                    </label>
-                </div> --}}
+           
                 <br />
                 <button class="loginBtn" type="submit">Login</button>
-            </div>
+                <h3 class="mt-3">Need to create an account?</h3>
+        <a href="signup"><button class="loginBtn" type="submit">New User</button></a>
+        <a href="orgsignup"><button class="loginBtn" type="submit">Organization</button></a>
             </form>
-                <h3>Need to create an account?</h3>
-                <a href="signup"><button class="loginBtn" type="submit">New User</button></a>
-                <a href="orgsignup"><button class="loginBtn" type="submit">Organization</button></a>
         </div>
+        
     </div>
-    {{!-- <form class="eventCreate">
-            <label for="eventTitle">Event Title: </label><br />
-            <input type="text" id="eventTitle" name="eventTitle" /><br />
-            <label for="eventDesc">Event Description: </label><br />
-            <input type="text" id="eventDesc" name="eventDesc" /><br />
-            <button class="loginBtn" type="submit">Login</button>
-        </form> --}}
-    {{!-- <h3>Need to create an account?</h3>
-    <a href="signup"><button class="loginBtn" type="submit">New User</button></a>
-    <a href="orgsignup"><button class="loginBtn" type="submit">Organization</button></a>
-</div> --}}
+</div>
+
 <div class="container-scroll">
     <div id="box"></div>
 
@@ -66,4 +42,3 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/login.js"></script>
-
