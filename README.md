@@ -5,7 +5,7 @@
 *Change For Good* is a web-based application that gives users the ability to Connect, Create and Share through individual user accounts. All visitors land on the homepage where exisitng users can log into their individual accounts and new visitors can create accounts. 
 Each user has their own private page where they have the ability to view a list of avaialable events throughout the local area and save each event that will be viewable at the next log-in in the "saved events" box. Returning users will be able to view all previously saved events.
 
-![Change for Good demo](.gif)
+![Change for Good demo](Change-For-Good.gif)
 
 ## Table of Contents
 * [Deployed Link](#deployed-link)
