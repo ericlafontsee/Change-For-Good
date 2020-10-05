@@ -4,16 +4,23 @@ const passport = require("../config/passport");
 const { v4: uuidv4 } = require("uuid");
 
 module.exports = function(app) {
-  app.post("/api/orglogin", passport.authenticate("local-org"), (req, res) => {
-    // Sending back a password, even a hashed password, isn't a good idea
-    console.log("you hit api/orglogin route");
-    res.json({
-      // email: req.Organization.email,
-      email: req.user.email,
-      // id: req.Organization.id
-      id: req.user.id
-    });
-  });
+  app.post(
+    "/api/orglogin",
+    passport.authenticate("local-org", {
+      successRedirect: "/members",
+      failureRedirect: "/login"
+    }),
+    (req, res) => {
+      // Sending back a password, even a hashed password, isn't a good idea
+      console.log("you hit api/orglogin route");
+      res.json({
+        // email: req.Organization.email,
+        email: req.user.email,
+        // id: req.Organization.id
+        id: req.user.id
+      });
+    }
+  );
 
   // Route for signing up Organization
   app.post("/api/orgsignup", (req, res) => {
@@ -23,12 +30,12 @@ module.exports = function(app) {
       name: req.body.name,
       email: req.body.email,
       password: req.body.password,
-      website: req.body.website
+      website: req.body.website,
     })
       .then(() => {
         res.redirect(307, "/api/orglogin");
       })
-      .catch(err => {
+      .catch((err) => {
         res.status(401).json(err);
       });
   });
@@ -42,8 +49,8 @@ module.exports = function(app) {
   app.get("/api/organizations", (req, res) => {
     // A join to include all of each Organization's Events
     db.Organization.findAll({
-      include: db.Event
-    }).then(dbOrg => {
+      include: db.Event,
+    }).then((dbOrg) => {
       res.json(dbOrg);
     });
   });
@@ -53,10 +60,10 @@ module.exports = function(app) {
     // A join to include all of the Organization's Events here
     db.Organization.findOne({
       where: {
-        id: req.params.id
+        id: req.params.id,
       },
-      include: db.Event // gets all Events assoiated with that Organization
-    }).then(dbOrg => {
+      include: db.Event, // gets all Events assoiated with that Organization
+    }).then((dbOrg) => {
       res.json(dbOrg);
     });
   });
