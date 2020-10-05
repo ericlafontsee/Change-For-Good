@@ -11,25 +11,32 @@ module.exports = function(app) {
     // A join to include all of each Users's Events
     db.User.findAll({
       include: db.Event
-    }).then((dbUser) => {
+    }).then(dbUser => {
       res.json(dbUser);
     });
   });
 
-  app.post("/api/login", passport.authenticate("local"), (req, res) => {
-    // Sending back a password, even a hashed password, isn't a good idea
-    console.log(
-      "this is req.user email and id" +
-        req.user.dataValues.email +
-        " " +
-        req.user.dataValues.id
-    );
+  app.post(
+    "/api/login",
+    passport.authenticate("local-user", {
+      successRedirect: "/members",
+      failureRedirect: "/"
+    }),
+    (req, res) => {
+      // Sending back a password, even a hashed password, isn't a good idea
+      // console.log(
+      //   "this is req.user email and id" +
+      //     req.user.dataValues.email +
+      //     " " +
+      //     req.user.dataValues.id
+      // );
 
-    res.json({
-      email: req.user.email,
-      id: req.user.id
-    });
-  });
+      res.json({
+        email: req.user.email,
+        id: req.user.id
+      });
+    }
+  );
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
@@ -47,7 +54,7 @@ module.exports = function(app) {
       .then(() => {
         res.redirect(307, "/api/login");
       })
-      .catch((err) => {
+      .catch(err => {
         res.status(401).json(err);
       });
   });
@@ -80,7 +87,7 @@ module.exports = function(app) {
       where: {
         id: req.params.id
       }
-    }).then((result) => {
+    }).then(result => {
       console.log(result);
       result.setUsers(req.user.id);
       res.send(result);
@@ -95,7 +102,7 @@ module.exports = function(app) {
         id: req.user.id
       },
       include: db.Event //automatically gets all Events assoiated with that Organization
-    }).then((dbUser) => {
+    }).then(dbUser => {
       res.json(dbUser);
     });
   });
@@ -105,7 +112,7 @@ module.exports = function(app) {
     // A join to include all of each Organization's Events
     db.Event.findAll({
       include: db.Organization
-    }).then((dbEvent) => {
+    }).then(dbEvent => {
       res.json(dbEvent);
     });
   });
@@ -121,7 +128,7 @@ module.exports = function(app) {
       where: {
         id: req.params.id
       }
-    }).then((dbUserEvent) => {
+    }).then(dbUserEvent => {
       res.json(dbUserEvent);
     });
   });

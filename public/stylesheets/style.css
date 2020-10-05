@@ -1,8 +1,8 @@
 form.signup,
 form.login {
   margin-top: 50px;
+  margin-left: 50px;
 }
-
 
 /* BLOG BOX  */
 h1 {
@@ -32,7 +32,7 @@ section {
   font-family: sans-serif;
 }
 
-.#logoutBtn {
+#logoutBtn {
   /* display: flex; */
   /* flex-flow: row nowrap; */
   justify-content: end;
@@ -131,8 +131,6 @@ button,
   padding-top: 100px;
 }
 
-
- 
 
 /* BRAND COLORS 
   #1565C0 Blue Lighter - Trigger
