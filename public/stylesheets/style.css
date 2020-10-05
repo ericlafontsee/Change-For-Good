@@ -2,14 +2,14 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
-.container {
+/* .container {
   background-color: white;
   opacity: 0.9;
   position: fixed;
   z-index: 20;
   align-items: center;
   display: flexnode;
-}
+} */
 
 
 .body .html {
@@ -49,10 +49,14 @@ section {
   display: flex;
   font-family: sans-serif;
 }
-/* #logoutBtn{
-  padding: 20px;
-  margin: 0 auto;
-} */
+
+.#logoutBtn {
+  /* display: flex; */
+  /* flex-flow: row nowrap; */
+  justify-content: end;
+  margin-top: 20px;
+}
+
 /* article {
   flex: 1 200px;
 }
