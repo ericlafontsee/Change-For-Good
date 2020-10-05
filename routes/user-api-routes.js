@@ -128,6 +128,7 @@ module.exports = function(app) {
         id: req.params.id
       }
     }).then(dbUserEvent => {
+      console.log(dbUserEvent);
       return res.json(dbUserEvent);
     });
   });
