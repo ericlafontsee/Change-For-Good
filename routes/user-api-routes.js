@@ -20,7 +20,7 @@ module.exports = function(app) {
     "/api/login",
     passport.authenticate("local-user", {
       successRedirect: "/members",
-      failureRedirect: "/login"
+      failureRedirect: "/"
     }),
     (req, res) => {
       // Sending back a password, even a hashed password, isn't a good idea

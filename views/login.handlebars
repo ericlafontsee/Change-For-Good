@@ -1,43 +1,59 @@
-<body>
-    
-
-    <div class="container">
-
-        <h1>Welcome!</h1>
-        <h2>Please login to continue</h2>
-        <form class="login">
-            <div class="emailInput">
-                <label for="email">Email Address: </label><br />
-                <input type="email" id="email" name="email" />
-            </div>
-            <div class="passwordInput">
-                <label for="password">Password: </label><br />
-                <input type="password" id="password" name="password">
-            </div><br />
-            <button class="loginBtn" type="submit">Login</button>
-        </form>
-        {{!-- <form class="eventCreate">
+<div class="page-container">
+    <h1>Welcome!</h1>
+    <h2>Please login to continue</h2>
+    <div class="row">
+        <div class="col-md-9">
+            <form class="login">
+                <div class="emailInput">
+                    <label for="email">Email Address: </label><br />
+                    <input type="email" id="email" name="email" />
+                </div>
+                <div class="passwordInput">
+                    <label for="password">Password: </label><br />
+                    <input type="password" id="password" name="password">
+                </div><br />
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="login-type" id="logInUser"
+                        value="User" checked>
+                    <label class="form-check-label" for="user">
+                        Member
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="login-type" id="logInOrg"
+                        value="Organization">
+                    <label class="form-check-label" for="org">
+                        Organization
+                    </label>
+                </div>
+                <br />
+                <button class="loginBtn" type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+    {{!-- <form class="eventCreate">
             <label for="eventTitle">Event Title: </label><br />
             <input type="text" id="eventTitle" name="eventTitle" /><br />
             <label for="eventDesc">Event Description: </label><br />
             <input type="text" id="eventDesc" name="eventDesc" /><br />
             <button class="loginBtn" type="submit">Login</button>
         </form> --}}
-        <h3>Need to create an account?</h3>
-        <a href="signup"><button class="loginBtn" type="submit">New User</button></a>
-        <a href="orgsignup"><button class="loginBtn" type="submit">Organization</button></a>
-    </div>
-    <div class="container-scroll">
-        <div id="box"></div>
-        <marquee class="bigTOP" behavior="scroll" direction="LEFT" scrollamount="15">WE ARE GOOD COMPANY  WE ARE GOOD COMPANY</marquee>
-        <marquee class="smallTop" behavior="scroll" direction="left" scrollamount="9">SMALL option TOP 1</marquee>
-        <marquee class="smallTop" behavior="scroll" direction="right" scrollamount="11">SMALL option TOP 2</marquee>
-        <marquee class="smallTop" behavior="scroll" direction="left" scrollamount="12">SMALL option TOP 3</marquee>
-        <marquee class="bigMiddle" behavior="scroll" direction="RIGHT" scrollamount="20">GOOD GOOD GOOD</marquee>
-        <marquee class="lowmidBottom" behavior="scroll" direction="left" scrollamount="10">LOW option MIDDLE BOTTOM</marquee>
-        <marquee class="lowBottom" behavior="scroll" direction="right" scrollamount="9">LOW optional BOTTOM</marquee>
-    </div>
+    <h3>Need to create an account?</h3>
+    <a href="signup"><button class="loginBtn" type="submit">New User</button></a>
+    <a href="orgsignup"><button class="loginBtn" type="submit">Organization</button></a>
+</div>
+<div class="container-scroll">
+    <div id="box"></div>
+    {{!-- <marquee class="bigTOP" behavior="scroll" direction="LEFT" scrollamount="15">WE ARE GOOD COMPANY WE ARE GOOD COMPANY
+    </marquee>
+    <marquee class="smallTop" behavior="scroll" direction="left" scrollamount="9">SMALL option TOP 1</marquee>
+    <marquee class="smallTop" behavior="scroll" direction="right" scrollamount="11">SMALL option TOP 2</marquee>
+    <marquee class="smallTop" behavior="scroll" direction="left" scrollamount="12">SMALL option TOP 3</marquee>
+    <marquee class="bigMiddle" behavior="scroll" direction="RIGHT" scrollamount="20">GOOD GOOD GOOD</marquee>
+    <marquee class="lowmidBottom" behavior="scroll" direction="left" scrollamount="10">LOW option MIDDLE BOTTOM --}}
+    </marquee>
+    <marquee class="lowBottom" behavior="scroll" direction="right" scrollamount="9">LOW optional BOTTOM</marquee>
+</div>
 
-</body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/login.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/login.js"></script>

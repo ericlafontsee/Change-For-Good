@@ -8,9 +8,9 @@ passport.use(
   "local-user",
   new LocalStrategy(
     // Our user will sign in using an email, rather than a "username"
-    // {
-    //   usernameField: "email"
-    // },
+    {
+      usernameField: "email"
+    },
     (email, password, done) => {
       // When a user tries to sign in this code runs
       db.User.findOne({
@@ -41,9 +41,9 @@ passport.use(
   "local-org",
   new LocalStrategy(
     // Our user will sign in using an email, rather than a "username"
-    // {
-    //   usernameField: "email"
-    // },
+    {
+      usernameField: "email"
+    },
     (email, password, done) => {
       // When a user tries to sign in this code runs
       console.log("hit local-org passport path");

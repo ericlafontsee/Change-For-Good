@@ -4,18 +4,21 @@ $(document).ready(() => {
   const eventForm = $("form.eventCreate");
   const emailInput = $("input#email");
   const passwordInput = $("input#password");
-  const title = $("input#eventTitle");
-  const description = $("input#eventDesc");
+
+  // const title = $("input#eventTitle");
+  // const description = $("input#eventDesc");
 
   // When the form is submitted, we validate there's an email and password entered
-  loginForm.on("submit", event => {
+  loginForm.on("submit", (event) => {
     event.preventDefault();
+
     const userData = {
       email: emailInput.val().trim(),
-      password: passwordInput.val().trim()
+      password: passwordInput.val().trim(),
     };
 
     if (!userData.email || !userData.password) {
+      alert("Please enter a valid email and password.");
       return;
     }
     console.log(userData);
@@ -25,11 +28,11 @@ $(document).ready(() => {
     passwordInput.val("");
   });
 
-  eventForm.on("submit", event => {
+  eventForm.on("submit", (event) => {
     event.preventDefault();
     const eventData = {
       title: title.val().trim(),
-      description: description.val()
+      description: description.val(),
     };
 
     if (!eventData.title || !eventData.description) {
@@ -44,25 +47,41 @@ $(document).ready(() => {
 
   // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
   function loginUser(email, password) {
-    $.post("/api/login", {
-      email: email,
-      password: password
-    })
-      .then(() => {
-        // window.location.replace("/userLanding.html");
-        window.location.replace("/members");
-
-        // If there's an error, log the error
+    const loginType = $('input[name="login-type"]:checked').val();
+    alert(loginType);
+    if (loginType === "User") {
+      $.post("/api/login", {
+        email: email,
+        password: password,
       })
-      .catch(err => {
-        console.log(err);
-      });
+        .then(() => {
+          // window.location.replace("/userLanding.html");
+          window.location.replace("/members");
+          // If there's an error, log the error
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      $.post("/api/orglogin", {
+        email: email,
+        password: password,
+      })
+        .then(() => {
+          window.location.replace("/organization");
+
+          // If there's an error, log the error
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   }
 
   function createEvent(title, description) {
     $.post("/api/events", {
       title: title,
-      description: description
+      description: description,
     })
       .then(() => {
         // window.location.replace("/userLanding.html");
@@ -70,7 +89,7 @@ $(document).ready(() => {
 
         // If there's an error, log the error
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   }

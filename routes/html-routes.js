@@ -23,7 +23,7 @@ module.exports = function(app) {
       res.render("../views/userLanding.handlebars");
     }
     // res.sendFile(path.join(__dirname, "../public/signup.html"));
-    res.render("../views/userSignup.handlebars");
+    res.render("../views/login.handlebars");
   });
 
   //loads the organization sign up page
@@ -34,7 +34,7 @@ module.exports = function(app) {
       res.render("../views/orgLanding.handlebars");
     }
     // res.sendFile(path.join(__dirname, "../public/orgSignup.html"));
-    res.render("../views/orgSignup.handlebars");
+    res.render("../views/login.handlebars");
   });
 
   // Here we've add our isAuthenticated middleware to this route.
@@ -43,6 +43,16 @@ module.exports = function(app) {
     if (req.user) {
       // res.sendFile(path.join(__dirname, "../public/userLanding.html"));
       res.render("../views/userLanding.handlebars");
+    } else {
+      // res.sendFile(path.join(__dirname, "../public/login.html"));
+      res.render("../views/login.handlebars");
+    }
+  });
+
+  app.get("/organization", isAuthenticated, (req, res) => {
+    if (req.user) {
+      // res.sendFile(path.join(__dirname, "../public/userLanding.html"));
+      res.render("../views/orgLanding.handlebars");
     } else {
       // res.sendFile(path.join(__dirname, "../public/login.html"));
       res.render("../views/login.handlebars");
