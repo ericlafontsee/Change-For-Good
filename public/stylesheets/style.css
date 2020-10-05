@@ -30,7 +30,8 @@ body {
 }
 
 form.signup,
-form.login {
+form.login,
+form {
   margin-top: 50px;
   margin-left: 50px;
   position: relative;
