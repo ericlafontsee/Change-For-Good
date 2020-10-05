@@ -32,12 +32,6 @@ module.exports = function(app) {
       password: req.body.password,
       website: req.body.website,
     })
-      .then(() => {
-        res.redirect(307, "/api/orglogin");
-      })
-      .catch((err) => {
-        res.status(401).json(err);
-      });
   });
 
   app.get("/logout", (req, res) => {

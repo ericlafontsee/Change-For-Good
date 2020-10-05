@@ -37,11 +37,8 @@ $(document).ready(() => {
       password: password,
       website: website
     })
-      .then(() => {
-        window.location.replace("/signup");
-        // If there's an error, handle it by throwing up a bootstrap alert
-      })
-      .catch(handleLoginErr);
+    return alert("organization created and added to database but cannot be logged in");
+
   }
 
   function handleLoginErr(err) {
