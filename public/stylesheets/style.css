@@ -1,7 +1,28 @@
+body { 
+  background-image: url("../images/elephants.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  z-index: -4;
+  margin: 0px;
+  height:100%;
+}
+
+
 form.signup,
 form.login {
   margin-top: 50px;
   margin-left: 50px;
+  position: relative;
+  z-index: 35;
+}
+
+.jumbotron {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #641E16;
+  position: static;
 }
 
 /* BLOG BOX  */
@@ -64,18 +85,16 @@ button,
 
 
 /* SCROLLER CONTROLLER */
-.bigTOP {
-  word-spacing: 1px;
+.titleTop {
+  word-spacing: 3px;
   letter-spacing: 2px;
   font-family: sans-serif;
-  font-size: 125px;
-  font-weight: bolder;
-  color: darkred;
-  line-height: inherit;
-  z-index: -4;
-  opacity: none;
+  font-size: 150px;
+  font-weight: bold;
+  color: #641E16;
+  z-index: 30;
   position: absolute;
-  padding-top: 25%;
+  margin-top: 20%;
 }
 
 .smallTop {
@@ -96,15 +115,15 @@ button,
   word-spacing: 10px;
   letter-spacing: 50px;
   font-family: sans-serif;
-  font-size: 350px;
+  font-size: 400px;
   font-weight: bolder;
   color: #c8c8c8;
-  z-index: -5;
+  z-index: 25;
   opacity: 0.4;
-  position: relative;
-  padding-top: 27%;
+  position: static;
+  margin-top: 0%;
+  margin-bottom: 0%;
   
-
 }
 
 .lowmidBottom {
