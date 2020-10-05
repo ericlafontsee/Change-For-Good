@@ -22,7 +22,6 @@ body {
   padding-bottom: 10px;
   background-color: #000c70;
   position: static;
-  color: white;
   
 }
 
@@ -41,12 +40,6 @@ form.login {
   opacity: 0.9;
 }
 
-.jumbotron {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: #000c70;
-  position: static;
-}
 
 /* BLOG BOX  */
 h1 {
