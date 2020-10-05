@@ -43,16 +43,6 @@ form.login {
   background-color: #000c70;
   position: static;
 }
-/* body{
-  background-image: url("../images/elephants.jpg");
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: auto;
-  position: relative;
-  z-index: -4;
-  margin: 0px;
-  height:100%;
-} */
 
 /* BLOG BOX  */
 h1 {
@@ -63,13 +53,14 @@ h1 {
 }
 article {
   padding: 10px;
-  margin: 10px;
+  margin-bottom: 20px;
   background:whitesmoke;
 }
 .eventFeed,
 .savedEventFeed
  {
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   height: 500px;
   /* width: 100%; */
   overflow: scroll;
