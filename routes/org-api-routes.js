@@ -1,26 +1,26 @@
 const db = require("../models");
-const passport = require("../config/passport");
+// const passport = require("../config/passport");
 // const { UUIDV4 } = require("sequelize/types");
 const { v4: uuidv4 } = require("uuid");
 
 module.exports = function(app) {
-  app.post(
-    "/api/orglogin",
-    passport.authenticate("local-org", {
-      successRedirect: "/organization",
-      failureRedirect: "/"
-    }),
-    (req, res) => {
-      // Sending back a password, even a hashed password, isn't a good idea
-      console.log("you hit api/orglogin route");
-      res.json({
-        // email: req.Organization.email,
-        email: req.user.email,
-        // id: req.Organization.id
-        id: req.user.id
-      });
-    }
-  );
+  // app.post(
+  //   "/api/orglogin",
+  //   passport.authenticate("local-org", {
+  //     successRedirect: "/organization",
+  //     failureRedirect: "/"
+  //   }),
+  //   (req, res) => {
+  //     // Sending back a password, even a hashed password, isn't a good idea
+  //     console.log("you hit api/orglogin route");
+  //     res.json({
+  //       // email: req.Organization.email,
+  //       email: req.user.email,
+  //       // id: req.Organization.id
+  //       id: req.user.id
+  //     });
+  //   }
+  // );
 
   // Route for signing up Organization
   app.post("/api/orgsignup", req => {
@@ -34,10 +34,10 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/logout", (req, res) => {
-    req.logout();
-    res.redirect("/");
-  });
+  // app.get("/logout", (req, res) => {
+  //   req.logout();
+  //   res.redirect("/");
+  // });
 
   //finds all organizations
   app.get("/api/organizations", (req, res) => {
