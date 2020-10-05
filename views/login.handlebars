@@ -1,8 +1,9 @@
 
 <div class="page-container" id="loginPage">
-    <h1>Welcome!</h1>
-    <h2>Please login to continue</h2>
-
+    <div class="icon">
+        <img src="../public/images/elephantred.png"  class="dance">   
+    </div>
+    
     <div class="row">
         <div class="col-md-9">
             <form class="login">
@@ -32,6 +33,10 @@
                 </div>
                 <br />
                 <button class="loginBtn" type="submit">Login</button>
+                <h3>Need to create an account?</h3>
+                <a href="signup"><button class="loginBtn" type="submit">New User</button></a>
+                <a href="orgsignup"><button class="loginBtn" type="submit">Organization</button></a>
+            </div>
             </form>
         </div>
     </div>
@@ -42,14 +47,14 @@
             <input type="text" id="eventDesc" name="eventDesc" /><br />
             <button class="loginBtn" type="submit">Login</button>
         </form> --}}
-    <h3>Need to create an account?</h3>
+    {{!-- <h3>Need to create an account?</h3>
     <a href="signup"><button class="loginBtn" type="submit">New User</button></a>
     <a href="orgsignup"><button class="loginBtn" type="submit">Organization</button></a>
-</div>
+</div> --}}
 <div class="container-scroll">
     <div id="box"></div>
 
-    <marquee class="titleTop" behavior="scroll" direction="LEFT" scrollamount="15">WE ARE GOOD COMPANY WE ARE GOOD COMPANY</marquee>
+    <marquee class="titleTop" behavior="scroll" direction="LEFT" scrollamount="15">WE ARE GOOD COMPANY</marquee>
 
     {{!-- <marquee class="smallTop" behavior="scroll" direction="left" scrollamount="9">SMALL option TOP 1</marquee>
     <marquee class="smallTop" behavior="scroll" direction="right" scrollamount="11">SMALL option TOP 2</marquee>

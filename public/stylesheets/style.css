@@ -10,7 +10,9 @@ body {
   height:100%;
 }
 
+.icon {
 
+}
 .page-container {
   align-content: center;
   margin-left: auto;
@@ -33,6 +35,9 @@ form.login {
   margin-left: 50px;
   position: relative;
   z-index: 35;
+  background-color: white;
+  padding:20px;
+  opacity: 0.9;
 }
 
 .jumbotron {
