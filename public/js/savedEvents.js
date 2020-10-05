@@ -77,7 +77,6 @@ $(document).ready(() => {
       eventsToAdd.push(createNewSavedRow(savedEvents[i]));
     }
     savedEventFeed.append(eventsToAdd);
-    location.reload("/");
   }
 
   // This function constructs a event's HTML
