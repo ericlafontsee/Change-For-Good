@@ -49,6 +49,7 @@ section {
   display: flex;
   font-family: sans-serif;
 }
+
 .#logoutBtn {
   /* display: flex; */
   /* flex-flow: row nowrap; */
