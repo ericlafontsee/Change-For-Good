@@ -2,7 +2,8 @@
 > Connecting involved community members with events they can serve in
 
 ## Description
-Users can log in to their account to view a list of all events in the area. When they click the save button, that event populates their "saved events" box. 
+*Change For Good* is a web-based application that gives users the ability to Connect, Create and Share through individual user accounts. All visitors land on the homepage where exisitng users can log into their individual accounts and new visitors can create accounts. 
+Each user has their own private page where they have the ability to view a list of avaialable events throughout the local area and save each event that will be viewable at the next log-in in the "saved events" box. Returning users will be able to view all previously saved events.
 
 ![Change for Good demo](.gif)
 
@@ -21,6 +22,15 @@ Users can log in to their account to view a list of all events in the area. When
 ## Installation
 If you wish to clone the code locally, you will need to run `npm install` to install the dependecies. (You can view the full list of dependencies in the package.json file)
 
+## Technology
+* [Node.js](https://nodejs.org/en/)
+* [npmjs](https://docs.npmjs.com/)
+* [Express-Sessions](https://www.npmjs.com/package/express-session)
+* [Express](https://www.npmjs.com/package/express)
+* [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+* [Boostrap](https://getbootstrap.com/)
+* [Handlebars](https://handlebarsjs.com/installation/)
+
 ## Usage
 Use the deployed site provided above.
 
@@ -28,8 +38,11 @@ Use the deployed site provided above.
 ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
 
 ## Contributing
-Please email Haley [haleynmyers@gmail.com](mailto:haleynmyers@gmail.com), Eric [elafontsee@gmail.com](mailto:elafontsee@gmail.com), Miller
-[william.miller.rich@gmail.com](william.miller.rich@gmail.com), or Payton [payton.banks@gmail.com](mailto:payton.banks@gmail.com)
+Please email:<br> 
+Haley Myers [haleynmyers@gmail.com](mailto:haleynmyers@gmail.com)<br> 
+Eric Lafontsee [elafontsee@gmail.com](mailto:elafontsee@gmail.com)<br> 
+Miller Rich [william.miller.rich@gmail.com](william.miller.rich@gmail.com)<br>
+Payton Banks [payton.banks@gmail.com](mailto:payton.banks@gmail.com)
 
 ## Tests
 `npm test`
