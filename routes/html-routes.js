@@ -23,7 +23,7 @@ module.exports = function(app) {
       res.render("../views/userLanding.handlebars");
     }
     // res.sendFile(path.join(__dirname, "../public/signup.html"));
-    res.render("../views/login.handlebars");
+    res.render("../views/userSignup.handlebars");
   });
 
   //loads the organization sign up page
@@ -34,7 +34,7 @@ module.exports = function(app) {
       res.render("../views/orgLanding.handlebars");
     }
     // res.sendFile(path.join(__dirname, "../public/orgSignup.html"));
-    res.render("../views/login.handlebars");
+    res.render("../views/orgSignup.handlebars");
   });
 
   // Here we've add our isAuthenticated middleware to this route.
@@ -61,9 +61,9 @@ module.exports = function(app) {
 
   app.get("/newevent", (req, res) => {
     // If the user already has an account send them to the org's page??
-    if (req.organization) {
+    if (req.user) {
       // res.redirect("/orgLanding.html");
-      res.render("../views/partials/createEvent.handlebars");
+      res.render("../views/createEvent.handlebars");
     }
     // res.sendFile(path.join(__dirname, "../public/orgSignup.html"));
     // res.render("../views/login.handlebars");
