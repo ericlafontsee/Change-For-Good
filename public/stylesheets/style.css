@@ -21,7 +21,7 @@ body {
 .jumbotron {
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: #641E16;
+  background-color: #000c70;
   position: static;
 }
 
@@ -40,7 +40,7 @@ form.login {
 .jumbotron {
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: #641E16;
+  background-color: #000c70;
   position: static;
 }
 /* body{
@@ -92,7 +92,7 @@ section {
 button,
 .button {
   flex: 1 auto;
-  background-color: #641E16;
+  background-color: #000C70;
   color: white;
   font-family: sans-serif;
   min-width: 8rem;
@@ -109,7 +109,7 @@ button,
   background-color: transparent;
   margin: 10px;
   padding: 20px;
-  background-color: #641e16;
+  background-color: #000C70;
 }
 
 
@@ -120,7 +120,7 @@ button,
   font-family: sans-serif;
   font-size: 150px;
   font-weight: bold;
-  color: #641E16;
+  color: #000C70;
   z-index: 30;
   position: absolute;
   margin-top: 20%;
@@ -160,7 +160,7 @@ button,
   font-family: sans-serif;
   font-size: 20px;
   font-weight: bolder;
-  color: darkred;
+  color: #000C70;
   z-index: -1;
   opacity: none;
   position: absolute;
