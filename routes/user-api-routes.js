@@ -12,7 +12,7 @@ module.exports = function(app) {
     db.User.findAll({
       include: db.Event
     }).then(dbUser => {
-      res.json(dbUser);
+      return res.json(dbUser);
     });
   });
 
@@ -31,7 +31,7 @@ module.exports = function(app) {
       //     req.user.dataValues.id
       // );
 
-      res.json({
+      return res.json({
         email: req.user.email,
         id: req.user.id
       });
@@ -52,33 +52,32 @@ module.exports = function(app) {
       password: req.body.password
     })
       .then(() => {
-        res.redirect(307, "/api/login");
+        return res.redirect(307, "/api/login");
       })
       .catch(err => {
-        res.status(401).json(err);
+        return res.status(401).json(err);
       });
   });
 
   // Route for logging user out
   app.get("/logout", (req, res) => {
     req.logout();
-    res.redirect("/");
+    return res.redirect("/");
   });
 
   // Route for getting some data about our user to be used client side
   app.get("/api/user_data", (req, res) => {
     if (!req.user) {
       // The user is not logged in, send back an empty object
-      res.json({});
-    } else {
-      // Otherwise send back the user's email and id
-      // Sending back a password, even a hashed password, isn't a good idea
-      res.json({
-        email: req.user.email,
-        id: req.user.id,
-        name: req.user.name
-      });
+      return res.json({});
     }
+    // Otherwise send back the user's email and id
+    // Sending back a password, even a hashed password, isn't a good idea
+    return res.json({
+      email: req.user.email,
+      id: req.user.id,
+      name: req.user.name
+    });
   });
 
   //route to post eventid and userid
@@ -90,7 +89,7 @@ module.exports = function(app) {
     }).then(result => {
       console.log(result);
       result.setUsers(req.user.id);
-      res.send(result);
+      return res.send(result);
     });
   });
 
@@ -103,7 +102,7 @@ module.exports = function(app) {
       },
       include: db.Event //automatically gets all Events assoiated with that Organization
     }).then(dbUser => {
-      res.json(dbUser);
+      return res.json(dbUser);
     });
   });
 
@@ -113,14 +112,14 @@ module.exports = function(app) {
     db.Event.findAll({
       include: db.Organization
     }).then(dbEvent => {
-      res.json(dbEvent);
+      return res.json(dbEvent);
     });
   });
 
   //log user out
   app.get("/logout", (req, res) => {
     req.logout();
-    res.redirect("/");
+    return res.redirect("/");
   });
 
   app.delete("/api/userevents/:id", (req, res) => {
@@ -129,7 +128,7 @@ module.exports = function(app) {
         id: req.params.id
       }
     }).then(dbUserEvent => {
-      res.json(dbUserEvent);
+      return res.json(dbUserEvent);
     });
   });
 };
