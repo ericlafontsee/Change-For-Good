@@ -47,8 +47,8 @@ $(document).ready(() => {
 
   function loginUser(email, password) {
     //checks the value of the radio in the login form
-    const loginType = $('input[name="login-type"]:checked').val();
-    if (loginType === "User") {
+    // const loginType = $('input[name="login-type"]:checked').val();
+    // if (loginType === "User") {
       // does a post to our "api/login" route and redirects us the the members page
       $.post("/api/login", {
         email: email,
@@ -61,20 +61,20 @@ $(document).ready(() => {
           alert("There was an error with your login. Please try again.");
           console.log(err);
         });
-    } else if (loginType === "Organization") {
-      // does a post to our "api/orglogin" route and redirects us the the organization's page
-      $.post("/api/orglogin", {
-        email: email,
-        password: password
-      })
-        .then(() => {
-          window.location.replace("/organization");
-        })
-        .catch(err => {
-          alert("There was an error with your login. Please try again.");
-          console.log(err);
-        });
-    }
+    // } else if (loginType === "Organization") {
+    //   // does a post to our "api/orglogin" route and redirects us the the organization's page
+    //   $.post("/api/orglogin", {
+    //     email: email,
+    //     password: password
+    //   })
+    //     .then(() => {
+    //       window.location.replace("/organization");
+    //     })
+    //     .catch(err => {
+    //       alert("There was an error with your login. Please try again.");
+    //       console.log(err);
+    //     });
+    // }
   }
 
   // function createEvent(title, description) {
