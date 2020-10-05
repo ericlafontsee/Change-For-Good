@@ -45,7 +45,7 @@ module.exports = function(app) {
     db.Organization.findAll({
       include: db.Event
     }).then(dbOrg => {
-      res.json(dbOrg);
+      return res.json(dbOrg);
     });
   });
 
@@ -58,7 +58,7 @@ module.exports = function(app) {
       },
       include: db.Event // gets all Events assoiated with that Organization
     }).then(dbOrg => {
-      res.json(dbOrg);
+      return res.json(dbOrg);
     });
   });
 };

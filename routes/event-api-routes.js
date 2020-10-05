@@ -9,7 +9,7 @@ module.exports = function(app) {
         // attributes: { exclude: ["updatedAt"] } FIX******
       }
     }).then(dbEvent => {
-      res.json(dbEvent);
+      return res.json(dbEvent);
     });
   });
 
@@ -23,14 +23,14 @@ module.exports = function(app) {
       include: db.Organization
     }).then(dbEvent => {
       console.log(dbEvent);
-      res.json(dbEvent);
+      return res.json(dbEvent);
     });
   });
 
   // POST route for saving a new Event
   app.post("/api/events", (req, res) => {
     db.Event.create(req.body).then(dbEvent => {
-      res.json(dbEvent);
+      return res.json(dbEvent);
     });
   });
 
@@ -41,7 +41,7 @@ module.exports = function(app) {
         id: req.params.id
       }
     }).then(dbEvent => {
-      res.json(dbEvent);
+      return res.json(dbEvent);
     });
   });
 
@@ -52,7 +52,7 @@ module.exports = function(app) {
         id: req.body.id
       }
     }).then(dbEvent => {
-      res.json(dbEvent);
+      return res.json(dbEvent);
     });
   });
 };
