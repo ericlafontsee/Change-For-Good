@@ -45,8 +45,7 @@ $(document).ready(() => {
     if (organizationId) {
       organizationId = "/?organization_id=" + organizationId;
     }
-    $.get("/api/Events" + organizationId, (data) => {
-      console.log("Events", data);
+    $.get("/api/Events" + organizationId, data => {
       events = data;
       if (!events || !events.length) {
         displayEmpty(organization);
@@ -58,7 +57,7 @@ $(document).ready(() => {
 
   //this function grabs saved events from user and updates view
   function getSavedEvents() {
-    $.get("/api/userevents/:id", (data) => {
+    $.get("/api/userevents/:id", data => {
       savedEvents = data.Events;
       if (!savedEvents || !savedEvents.length) {
         displaySavedEmpty(organization);
@@ -162,7 +161,7 @@ $(document).ready(() => {
       .parent()
       .data("event");
 
-    $.post(`/api/userevents/${currentEvent.id}`).then((result) => {
+    $.post(`/api/userevents/${currentEvent.id}`).then(() => {
       location.reload();
     });
   }
