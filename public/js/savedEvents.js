@@ -7,18 +7,7 @@ $(document).ready(() => {
   const savedEventFeed = $(".savedEventFeed");
   // Click events for the edit and delete buttons
   $(document).on("click", "button.save", handleEventEdit);
-  //   $(".delete").on("click", function(event) {
-  //     console.log("test");
-  //     event.preventDefault();
-  //     var id = $(this).attr("data-id");
-  //     console.log(id);
 
-  //     $.delete("/api/userevents/" + id, {
-  //     }).then(result =>  {
-  //       console.log(result);
-  //             location.reload();
-  //         }
-  //     );
   // });//would need to make this save
   // Variable to hold our Events
   let events;
@@ -129,8 +118,12 @@ $(document).ready(() => {
     const newEventCardHeading = $(
       "<div class='card-header' style='background-color: #000C70'>"
     );
+    const id = savedEvents.id;
+    console.log(savedEvents);
     const deleteBtn = $(
-      "<button class='button delete btn-danger' style='display: float; float: right'>"
+      "<button class='button delete btn-danger' data-id='" +
+        id +
+        "' style='display: float; float: right'>"
     );
     deleteBtn.text("Delete");
     const newEventTitle = $("<h2 style='color: white'>");
@@ -197,4 +190,15 @@ $(document).ready(() => {
     messageH2.html("No events saved yet");
     savedEventFeed.append(messageH2);
   }
+
+  $(document).on("click", ".delete", function(event) {
+    event.preventDefault();
+    const id = $(this).attr("data-id");
+    console.log(id);
+
+    $.ajax({ url: "/api/userevents/" + id, type: "DELETE" }).then(result => {
+      console.log(result);
+      location.reload();
+    });
+  });
 });
