@@ -8,10 +8,12 @@ html, body {
   margin: 0px;
   height:100%;
   padding-bottom: 20px;
+  background-color:  #000c70;
 }
 
 .icon {
   width: 35px;
+  margin: 20px;
 
 }
 
