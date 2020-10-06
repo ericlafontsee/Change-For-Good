@@ -1,57 +1,42 @@
-
 <div class="container-scroll">
-    <div class="page-container" id="loginPage">
-        <div class="row">
-        <div class="icon">
-            <img src="../images/elephantblue.png">
+    {{!-- <div class="page-container" id="loginPage"> --}}
+    <div class="row">
+        <div class="col-2">
+            <div class="icon">
+                <img src="../images/elephantblue.png">
+            </div>
         </div>
-            <div class="col-12 loginPage">
-                <form class="login">
-                    <h1>Welcome!</h1>
-                    <h2>Please login to continue</h2>
-                    <br>
-                    <div class="emailInput">
-                        <label for="email">Email Address: </label>
-                        <input class="form-control" type="email" id="email" name="email" />
-                    </div>
-                    <br />
-                    <div class="passwordInput">
-                        <label for="password">Password: </label>
-                        <input class="form-control" type="password" id="password" name="password">
-                    </div><br />
-            
-                    <br />
-                    <button class="button loginBtn" type="submit">Login</button>
-                </form>
-                <form>
-                   <h3 class="mt-3">Need to create an account?</h3>
+        <div class="col-7 loginPage">
+            <form class="login">
+                <h1>Welcome!</h1>
+                <h2>Please login to continue</h2>
+                <br>
+                <div class="emailInput">
+                    <label for="email">Email Address: </label>
+                    <input class="form-control" type="email" id="email" name="email" />
+                </div>
+                <br />
+                <div class="passwordInput">
+                    <label for="password">Password: </label>
+                    <input class="form-control" type="password" id="password" name="password">
+                </div><br />
+
+                <br />
+                <button class="button loginBtn" type="submit">Login</button>
+            </form>
+    
+            <form>
+                <h3 class="mt-3">Need to create an account?</h3>
                 <br />
                 <a class="button" href="/signup">New User</a>
 
                 <a class="button" href="/orgsignup">Organization</a>
-                </form>
-            </div>
-            
+            </form>
         </div>
-    </div>
+        <div id="box"></div>
 
+        <marquee class="titleTop" behavior="scroll" direction="LEFT" scrollamount="15">CHANGE FOR GOOD</marquee>
+    <marquee class="lowBottom" behavior="scroll" direction="right" scrollamount="9">Communities Coming Together to Make Change</marquee>
 
-    <div id="box"></div>
-
-    <marquee class="titleTop" behavior="scroll" direction="LEFT" scrollamount="15">WE ARE GOOD COMPANY</marquee>
-
-    {{!-- <marquee class="smallTop" behavior="scroll" direction="left" scrollamount="9">SMALL option TOP 1</marquee>
-    <marquee class="smallTop" behavior="scroll" direction="right" scrollamount="11">SMALL option TOP 2</marquee>
-    <marquee class="smallTop" behavior="scroll" direction="left" scrollamount="12">SMALL option TOP 3</marquee> --}}
-    <marquee class="bigMiddle" behavior="scroll" direction="RIGHT" scrollamount="20">GOOD GOOD GOOD</marquee>
-    {{!-- <marquee class="lowmidBottom" behavior="scroll" direction="left" scrollamount="10">LOW option MIDDLE BOTTOM</marquee> --}}
-    {{!-- <marquee class="lowBottom" behavior="scroll" direction="right" scrollamount="9">LOW optional BOTTOM</marquee> --}}
-
-    <div>
-        
-    </div>
-</div>
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript" src="js/login.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="js/login.js"></script>
