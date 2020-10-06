@@ -6,8 +6,20 @@ $(document).ready(() => {
   const eventFeed = $(".eventFeed");
   const savedEventFeed = $(".savedEventFeed");
   // Click events for the edit and delete buttons
-  $(document).on("click", "button.save", handleEventEdit); //would need to make this save
-  $(document).on("click", "button.delete", deleteUserEvent); //would need to make this save
+  $(document).on("click", "button.save", handleEventEdit); 
+//   $(".delete").on("click", function(event) {
+//     console.log("test");
+//     event.preventDefault();
+//     var id = $(this).attr("data-id");
+//     console.log(id);
+
+//     $.delete("/api/userevents/" + id, {
+//     }).then(result =>  {
+//       console.log(result);
+//             location.reload();
+//         }
+//     );
+// });//would need to make this save
   // Variable to hold our Events
   let events;
   let savedEvents;
@@ -47,8 +59,6 @@ $(document).ready(() => {
   //this function grabs saved events from user and updates view
   function getSavedEvents() {
     $.get("/api/userevents/:id", data => {
-      console.log("Events", data);
-      console.log("data.events", data.Events);
       savedEvents = data.Events;
       if (!savedEvents || !savedEvents.length) {
         displaySavedEmpty(organization);
@@ -129,9 +139,8 @@ $(document).ready(() => {
     const deleteBtn = $("<button>");
     deleteBtn.text("x");
     deleteBtn.addClass("delete btn btn-danger");
-    // const saveBtn = $("<button>");
-    // saveBtn.text("SAVE");
-    // saveBtn.addClass("save btn btn-info");
+    // deleteBtn.attr("data-id=", savedEvents.id);
+  
     const newEventTitle = $("<h2>");
     const newEventDate = $("<small>");
     const newEventOrganization = $("<h5>");
@@ -160,31 +169,13 @@ $(document).ready(() => {
   }
   // This function figures out which Event we want to edit and takes it to the appropriate url
   function handleEventEdit() {
-    // event = $(this).parent().parent().data("event");
-    // console.log(event.id);
-
-    console.log("hit button");
     const currentEvent = $(this)
       .parent()
       .parent()
       .data("event");
 
     $.post(`/api/userevents/${currentEvent.id}`).then(result => {
-      console.log(result);
       location.reload();
-    });
-  }
-
-  function deleteUserEvent() {
-    console.log("Delete");
-    console.log($(this));
-    const currentEvent = $(this);
-    // .parent()
-    // .parent()
-    // .data("event");
-
-    $.delete(`/api/userevents/${currentEvent.id}`).then(result => {
-      console.log(result);
     });
   }
 
