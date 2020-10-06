@@ -95,7 +95,7 @@ $(document).ready(() => {
       "<div class='card-header' style='background-color: #000C70'>"
     );
     const saveBtn = $(
-      "<button class='button save btn btn-info' style='display: float; float: right'>"
+      "<button class='button save btn-info' style='display: float; float: right'>"
     );
     saveBtn.text("SAVE");
     const newEventTitle = $("<h2 style='color: white'>");
@@ -130,7 +130,7 @@ $(document).ready(() => {
       "<div class='card-header' style='background-color: #000C70'>"
     );
     const deleteBtn = $(
-      "<button class='button delete btn btn-danger' style='display: float; float: right'>"
+      "<button class='button delete btn-danger' style='display: float; float: right'>"
     );
     deleteBtn.text("Delete");
     const newEventTitle = $("<h2 style='color: white'>");
