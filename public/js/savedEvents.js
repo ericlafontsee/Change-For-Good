@@ -6,20 +6,20 @@ $(document).ready(() => {
   const eventFeed = $(".eventFeed");
   const savedEventFeed = $(".savedEventFeed");
   // Click events for the edit and delete buttons
-  $(document).on("click", "button.save", handleEventEdit); 
-//   $(".delete").on("click", function(event) {
-//     console.log("test");
-//     event.preventDefault();
-//     var id = $(this).attr("data-id");
-//     console.log(id);
+  $(document).on("click", "button.save", handleEventEdit);
+  //   $(".delete").on("click", function(event) {
+  //     console.log("test");
+  //     event.preventDefault();
+  //     var id = $(this).attr("data-id");
+  //     console.log(id);
 
-//     $.delete("/api/userevents/" + id, {
-//     }).then(result =>  {
-//       console.log(result);
-//             location.reload();
-//         }
-//     );
-// });//would need to make this save
+  //     $.delete("/api/userevents/" + id, {
+  //     }).then(result =>  {
+  //       console.log(result);
+  //             location.reload();
+  //         }
+  //     );
+  // });//would need to make this save
   // Variable to hold our Events
   let events;
   let savedEvents;
@@ -46,7 +46,6 @@ $(document).ready(() => {
       organizationId = "/?organization_id=" + organizationId;
     }
     $.get("/api/Events" + organizationId, data => {
-      console.log("Events", data);
       events = data;
       if (!events || !events.length) {
         displayEmpty(organization);
@@ -90,38 +89,32 @@ $(document).ready(() => {
   // This function constructs a event's HTML
   function createNewRow(event) {
     let formattedDate = new Date(event.createdAt);
-    formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
-    const newEventCard = $("<div>");
-    newEventCard.addClass("card");
-    const newEventCardHeading = $("<div>");
-    newEventCardHeading.addClass("card-header");
-    // const deleteBtn = $("<button>");
-    // deleteBtn.text("x");
-    // deleteBtn.addClass("delete btn btn-danger");
-    const saveBtn = $("<button>");
+    formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm a");
+    const newEventCard = $("<div class='card'>");
+    const newEventCardHeading = $(
+      "<div class='card-header' style='background-color: #000C70'>"
+    );
+    const saveBtn = $(
+      "<button class='button save btn btn-info' style='display: float; float: right'>"
+    );
     saveBtn.text("SAVE");
-    saveBtn.addClass("save btn btn-info");
-    const newEventTitle = $("<h2>");
-    const newEventDate = $("<small>");
-    const newEventOrganization = $("<h5>");
+    const newEventTitle = $("<h2 style='color: white'>");
+    const newEventDate = $("<h6 color: black>");
+    const newEventOrganization = $(
+      "<h5 style='display: float; float: left; color: white'>"
+    );
     newEventOrganization.text("Written by: " + event.Organization.name);
-    newEventOrganization.css({
-      float: "right",
-      color: "blue",
-      "margin-top": "-10px"
-    });
-    const newEventCardBody = $("<div>");
-    newEventCardBody.addClass("card-body");
+    const newEventCardBody = $("<div class='card-body'>");
     const newEventBody = $("<p>");
     newEventTitle.text(event.title + " ");
-    newEventBody.text(event.body);
     newEventDate.text(formattedDate);
-    newEventTitle.append(newEventDate);
+    newEventBody.text(event.description);
     // newEventCardHeading.append(deleteBtn);
     newEventCardHeading.append(saveBtn);
     newEventCardHeading.append(newEventTitle);
     newEventCardHeading.append(newEventOrganization);
     newEventCardBody.append(newEventBody);
+    newEventBody.append(newEventDate);
     newEventCard.append(newEventCardHeading);
     newEventCard.append(newEventCardBody);
     newEventCard.data("event", event);
@@ -131,36 +124,30 @@ $(document).ready(() => {
   // This function constructs a saved event's HTML
   function createNewSavedRow(savedEvents) {
     let formattedDate = new Date(savedEvents.eventDate);
-    formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
-    const newEventCard = $("<div>");
-    newEventCard.addClass("card");
-    const newEventCardHeading = $("<div>");
-    newEventCardHeading.addClass("card-header");
-    const deleteBtn = $("<button>");
-    deleteBtn.text("x");
-    deleteBtn.addClass("delete btn btn-danger");
-    // deleteBtn.attr("data-id=", savedEvents.id);
-  
-    const newEventTitle = $("<h2>");
-    const newEventDate = $("<small>");
-    const newEventOrganization = $("<h5>");
-    newEventOrganization.text("Event Description: " + savedEvents.description);
-    newEventOrganization.css({
-      float: "right",
-      color: "blue",
-      "margin-top": "-10px"
-    });
-    const newEventCardBody = $("<div>");
-    newEventCardBody.addClass("card-body");
+    formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm a");
+    const newEventCard = $("<div class='card'>");
+    const newEventCardHeading = $(
+      "<div class='card-header' style='background-color: #000C70'>"
+    );
+    const deleteBtn = $(
+      "<button class='button delete btn btn-danger' style='display: float; float: right'>"
+    );
+    deleteBtn.text("Delete");
+    const newEventTitle = $("<h2 style='color: white'>");
+    const newEventDate = $("<h6>");
+    const newEventOrganization = $(
+      "<h5 style='display: float; float: left; color: black'>"
+    );
+    newEventOrganization.text(savedEvents.description);
+    const newEventCardBody = $("<div class='card-body'>");
     const newEventBody = $("<p>");
     newEventTitle.text(savedEvents.title + " ");
-    // newEventBody.text(event.body);
     newEventDate.text(formattedDate);
-    newEventTitle.append(newEventDate);
+    newEventBody.append(newEventDate);
     newEventCardHeading.append(deleteBtn);
     // newEventCardHeading.append(saveBtn);
     newEventCardHeading.append(newEventTitle);
-    newEventCardHeading.append(newEventOrganization);
+    newEventCardBody.append(newEventOrganization);
     newEventCardBody.append(newEventBody);
     newEventCard.append(newEventCardHeading);
     newEventCard.append(newEventCardBody);
@@ -174,7 +161,7 @@ $(document).ready(() => {
       .parent()
       .data("event");
 
-    $.post(`/api/userevents/${currentEvent.id}`).then(result => {
+    $.post(`/api/userevents/${currentEvent.id}`).then(() => {
       location.reload();
     });
   }
@@ -192,7 +179,7 @@ $(document).ready(() => {
     messageH2.html(
       "No events yet" +
         partial +
-        ", navigate <a href='/cms" +
+        ", navigate <a href='/orgLogin" +
         query +
         "'>here</a> in order to get started."
     );
@@ -201,21 +188,13 @@ $(document).ready(() => {
 
   //this function displays a message when there are no saved events
   function displaySavedEmpty(id) {
-    const query = window.location.search;
-    let partial = "";
     if (id) {
       partial = " for Organization #" + id;
     }
     savedEventFeed.empty();
     const messageH2 = $("<h2>");
     messageH2.css({ "text-align": "center", "margin-top": "50px" });
-    messageH2.html(
-      "No events yet" +
-        partial +
-        ", navigate <a href='/cms" +
-        query +
-        "'>here</a> in order to get started."
-    );
+    messageH2.html("No events saved yet");
     savedEventFeed.append(messageH2);
   }
 });

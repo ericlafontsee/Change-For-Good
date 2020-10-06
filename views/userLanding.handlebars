@@ -1,8 +1,8 @@
-
-<div  id="logoutBtn">
-    <a href="/logout"><button>LOGOUT</button></a>
+<div class="row">
+    <a  href="/logout" style="margin: 10px">
+    <button class="button">LOGOUT</button></a>
 </div>
-<br />
+
 <div class="container">
     <div style="background-color: #000C70" class="jumbotron">
         <img class="icon" src="../images/elephantwhite.png" width="50" height="50" class="d-inline-block align-top"
@@ -10,8 +10,8 @@
         <h1 class="display-3">Welcome <span class="userName"></span></h1>
     </div>
     <div class="row">
-        <section class="col-6 bg-light">
-            <h2>Browse Events</h2>
+        <section class="col-6 bg-light text-centered">
+            <h2>Browse All Events</h2>
             {{!-- The container that holds saved event --}}
             <article class="eventFeed">
 
@@ -19,7 +19,7 @@
 
         </section>
 
-        <section class="col-6 bg-light">
+        <section class="col-6 bg-light text-centered">
             <h2>Saved Events</h2>
             <article class="savedEventFeed">
 
